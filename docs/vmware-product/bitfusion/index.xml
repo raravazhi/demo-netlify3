@@ -1,0 +1,77 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubeflow on vSphere – with Bitfusion</title>
+    <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/</link>
+    <description>Recent content in with Bitfusion on Kubeflow on vSphere</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: Bitfusion</title>
+      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/</guid>
+      <description>
+        
+        
+        &lt;p&gt;This chapter is for Kubeflow integration with vSphere Infrastructure resources such as Bitfusion server or Nvidia GPU.&lt;/p&gt;
+&lt;h2 id=&#34;vmware-bitfusion&#34;&gt;VMware Bitfusion&lt;/h2&gt;
+&lt;p&gt;We will explain in this session the benefits of the Kubeflow integration with VMware vSphere Bitfusion.&lt;/p&gt;
+&lt;p&gt;Since AI/ML is a new type of application, we should look at its requirements and make sure we can meet them. There are two requirements we are considering here. You will likely want to run your app in containers and You will likely want to use hardware acceleration (a GPU, typically) to run your AI/ML application.&lt;/p&gt;
+&lt;p&gt;However, GPUs have traditionally been difficult to share. As a piece of hardware sitting on a bus, only the software running local to that bus has been able to access it. If you move the software, you lose access. Even worse, two virtual machines, both running locally to a GPU, cannot share it. A GPU must be passed exclusively to one VM or the other. Compounding that, a single user, VM, or application seldom uses the GPU efficiently. It is not atypical for GPUs to sit idle 85% of the time. The industry average on this is hard to obtain, and it varies a lot from use-case to use-case. But if the price of a GPU seems high, it seems even higher when it is underutilized to this extent.&lt;/p&gt;
+&lt;p&gt;Enter VMware vSphere Bitfusion. It lets you share GPUs in two ways. Bitfusion sets up a pool of GPU servers, and gives GPU access, remotely, across the network, to applications or microservices running on client VMs or containers set up for each piece of software. GPUs, over the course of time, can “fly” from one application to another, being allocated and deallocated dynamically whenever an application needs hardware acceleration. Bitfusion also partitions GPUs into fractions of arbitrary size (it is the GPU memory that is partitioned), so the GPU can be used concurrently by multiple applications. All this raises the utilization and efficiency of the precious GPU resources.&lt;/p&gt;
+&lt;p&gt;An inteagrated &lt;a href=&#34;https://www.vmware.com/products/vsphere.html#resources&#34;&gt;VMware vSphere&lt;/a&gt;, Bitfusion delivers the ability to share resources in addition to providing better utilization of existing or new hardware accelerator resources. Bitfusion can dynamically share hardware accelerator devices, such as GPUs, across a network.And this technology is for specific use with AI/ML software such as TensorFlow and PyTorch.&lt;/p&gt;
+&lt;p&gt;For more information about Bitfusion, please visit &lt;a href=&#34;https://docs.vmware.com/cn/VMware-vSphere-Bitfusion/index.html&#34;&gt;vSphere Bitfusion document page&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;installation--use-case&#34;&gt;Installation &amp;amp; Use Case&lt;/h2&gt;
+&lt;p&gt;The bulk of this session will be a detailed example of how to run a TensorFlow application in a containerized Bitfusion environment with remote GPU access.&lt;/p&gt;
+&lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../1_arch.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There is the achitecture of the Kubeflow Jupyer Notebook integration with Bitfsion. You can follow the official guide to install bifusion server with the &lt;a href=&#34;https://github.com/vmware/bitfusion-with-kubernetes-integration&#34;&gt;Bifusion Device Plugin&lt;/a&gt;. We also upload the package of kubeflow integration with bitfusion in the &lt;a href=&#34;https://github.com/harperjuanl/kubeflow-v1.6.0-rc.1&#34;&gt;Github Repo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;How can we use the same image for both of Bitfusion and Nvidia. Let me show you the reason. Under the hood, when a Notebook created, we’ve modified the Kubeflow code to put bitfusion configuration info into the annotations based on your selection and record the GPU resource requests and limits.&lt;/p&gt;
+&lt;p&gt;Then the Modified Notebook controller will transfer all these information related to the bitfusion to the “StatefulSet” resource objects.&lt;/p&gt;
+&lt;p&gt;When “Bitfusion Device Plugin” see that information in the Pod Resource, it will inject the bitfusion client library, server config, client certificate and all necessary information automatically  to make this notebook a valid bitfusion client.&lt;/p&gt;
+&lt;h3 id=&#34;use-case&#34;&gt;Use Case&lt;/h3&gt;
+&lt;p&gt;When we are creating Jupyter Notebook instance in the Notebook page of the Kubeflow dashboard, we are giving the name, choose one of the Kubeflow official images. As you can see in the following figure, in the GPU resources settings, we choose th “BITFUSION” option. After launch the new notebook, we can easily run the bitfusion client applications in the Jupyter Notebook.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../2_notebook.png&#34; alt=&#34;2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We are running a bitfusion benchmark applications in this use case. From the output of the benchmark, we will find information related to the Bitfusion server resource allocation. You can get the source code of the example from &lt;a href=&#34;&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;%env &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:/bitfusion/bitfusion-client-ubuntu2004_4.5.0-4_amd64.deb/usr/bin:/opt/conda/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# test for occupy bitfusion &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;!bitfusion run -n &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; -- bash
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# TensorFlow benchmark assuming an imagenet dataset&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;!bitfusion run -n &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; -- python3 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;./benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--data_format&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;NCHW &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--batch_size&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;64&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--model&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;resnet50 &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--variable_update&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;replicated &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--local_parameter_device&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;gpu &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--nodistortions &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--num_gpus&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--num_batches&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;100&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--data_dir&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;../data &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--data_name&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;imagenet &lt;span class=&#34;se&#34;&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;--use_fp16&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;False
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# release bitfusion resource&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bitfusion release_gpus -f /tmp/bitfuiosn...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When running the bitfusion notebook, we can monitor the GPU usage in the vCenter Server console, shown as the demo.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../4_bitfusion_console.png&#34; alt=&#34;4&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;roadmap&#34;&gt;Roadmap&lt;/h2&gt;
+&lt;p&gt;In the above use case, you may find that we can only run python scripts with a bitfusion wrapper. But we will build a “Bitfusion Kernel” in the near feature, shown as the screen, to let users to run every python code blocks into bitfusion environment&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../3_bitfusion_kernel_roadmap.png&#34; alt=&#34;3&#34;&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,30 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubeflow on vSphere – Integration with VMware</title>
+    <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/</link>
+    <description>Recent content in Integration with VMware on Kubeflow on vSphere</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Docs: with Bitfusion</title>
+      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

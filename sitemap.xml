@@ -1,0 +1,119 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/about/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/proxy/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/app-platform/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/namespace/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab2/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab3/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/cluster/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/carvel/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab4/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline/lab_pipeline/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/markdowns/example1_facialkeypoint/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/markdowns/example2_gresearch/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/readme/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/docs/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.kubeflow.orghttps://vmware.github.io/ml-ops-platform-for-vsphere/</loc>
+    <lastmod>2022-11-02T15:23:26+08:00</lastmod>
+  </url>
+  
+</urlset>

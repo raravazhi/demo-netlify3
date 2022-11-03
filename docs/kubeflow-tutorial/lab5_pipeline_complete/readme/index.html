@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.93.0" />
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/"
+      },
+      "articleSection" : "docs",
+      "name" : "",
+      "headline" : "",
+      "description" : "Lab 7: Kubeflow Pipeline Full Source You can view and download the complete repo from (including notebooks, datasets, source codes, Dockerfile, etc) here.\n Table of Contents  Introduction Understand pipeline and pipeline components Example overview  Example 1 facial keypoint detection: build pipeline from docker images Example 2 g-research crypto forecasting: build pipeline from notebook directly   Running a pipeline   Introduction Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers.",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "0001",
+      "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
+      "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
+      "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/kubeflow-tutorial\/lab5_pipeline_complete\/readme\/",
+      "wordCount" : "1347",
+      "keywords" : [ "Kubeflow" ]
+  }
+  </script>
+
+<link rel="shortcut icon" href="/ml-ops-platform-for-vsphere/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/ml-ops-platform-for-vsphere/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/ml-ops-platform-for-vsphere/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/ml-ops-platform-for-vsphere/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="manifest" href="/ml-ops-platform-for-vsphere/favicons/manifest.json">
+<meta name="msapplication-config" content="/ml-ops-platform-for-vsphere/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#4279f4">
+<meta name="theme-color" content="#4279f4">
+
+<title>Kubeflow on vSphere</title>
+<meta name="description" content="Lab 7: Kubeflow Pipeline
+Full Source
+You can view and download the complete repo from (including notebooks, datasets, source codes, Dockerfile, etc) …">
+<meta property="og:title" content="" />
+<meta property="og:description" content="Lab 7: Kubeflow Pipeline Full Source You can view and download the complete repo from (including notebooks, datasets, source codes, Dockerfile, etc) here.
+ Table of Contents  Introduction Understand pipeline and pipeline components Example overview  Example 1 facial keypoint detection: build pipeline from docker images Example 2 g-research crypto forecasting: build pipeline from notebook directly   Running a pipeline   Introduction Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/readme/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2022-11-02T15:23:26+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="Lab 7: Kubeflow Pipeline Full Source You can view and download the complete repo from (including notebooks, datasets, source codes, Dockerfile, etc) here.
+ Table of Contents  Introduction Understand pipeline and pipeline components Example overview  Example 1 facial keypoint detection: build pipeline from docker images Example 2 g-research crypto forecasting: build pipeline from notebook directly   Running a pipeline   Introduction Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers.">
+<meta itemprop="dateModified" content="2022-11-02T15:23:26+08:00" />
+<meta itemprop="wordCount" content="1347">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="Lab 7: Kubeflow Pipeline Full Source You can view and download the complete repo from (including notebooks, datasets, source codes, Dockerfile, etc) here.
+ Table of Contents  Introduction Understand pipeline and pipeline components Example overview  Example 1 facial keypoint detection: build pipeline from docker images Example 2 g-research crypto forecasting: build pipeline from notebook directly   Running a pipeline   Introduction Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers."/>
+
+
+
+
+<link rel="preload" href="/ml-ops-platform-for-vsphere/scss/main.min.cfd7574257326fddbc6f33f260c0bda4c6d74394ebf2531282625a18d0a19e75.css" as="style">
+<link href="/ml-ops-platform-for-vsphere/scss/main.min.cfd7574257326fddbc6f33f260c0bda4c6d74394ebf2531282625a18d0a19e75.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+    
+    <link href="/ml-ops-platform-for-vsphere/css/syntax.min.css" rel="stylesheet">
+
+    
+    <link href="/ml-ops-platform-for-vsphere/css/copy-code-button.min.css" rel="stylesheet">
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand-md navbar-dark  td-navbar">
+        <a class="navbar-brand" href="/ml-ops-platform-for-vsphere/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Kubeflow on vSphere</span>
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav ml-auto pt-4 pt-md-0 my-2 my-md-1">
+			
+			
+			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/ml-ops-platform-for-vsphere/docs/" ><i class='fas fa-book pr-2'></i><span>Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/vmware/ml-ops-platform-for-vsphere" target="_blank" ><i class='fab fa-github pr-2'></i><span>GitHub</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown mt-1 mt-lg-0 mr-2">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Releases
+</a>
+<div class="dropdown-menu dropdown-menu-md-right dropdown-menu-lg-left" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs">v1.6</a>
+	
+	<a class="dropdown-item" href="https://core.vmware.com/aiml-solutions">v1.5</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocs-li">
+  <a href="/ml-ops-platform-for-vsphere/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ml-ops-platform-for-vspheredocs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsabout-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsabout-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsabout-check"><a href="/ml-ops-platform-for-vsphere/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsabout"><span class="">About</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsdeployment-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeployment-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeployment-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeployment"><span class="">Deployment</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites"><span class="">Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/namespace/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace"><span class="">Create and configure a vSphere Namespace</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/cluster/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster"><span class="">Create a Tanzu Kubernetes Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/carvel/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel"><span class="">Deploy Kubeflow</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting"><span class="">Trouble Shooting</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/proxy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy"><span class="">Configure a proxy</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/app-platform/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform"><span class="">Install Kapp-controller</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-check" checked/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial"><span class="">Kubeflow Tutorial</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1"><span class="">Lab1 Getting Started</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2"><span class="">Lab2 Notebooks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab3/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3"><span class="">Lab3 PyTorch Training (PyTorchJob)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab4/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4"><span class="">lab4 Model Serving</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipelinelab_pipeline-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipelinelab_pipeline-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipelinelab_pipeline-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline/lab_pipeline/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipelinelab_pipeline"><span class="">Lab5 Pipeline</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample1_facialkeypoint-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample1_facialkeypoint-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample1_facialkeypoint-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/markdowns/example1_facialkeypoint/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample1_facialkeypoint"><span class=""></span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample2_gresearch-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample2_gresearch-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample2_gresearch-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/markdowns/example2_gresearch/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completemarkdownsexample2_gresearch"><span class=""></span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completereadme-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completereadme-check" checked/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completereadme-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/readme/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completereadme"><span class="td-sidebar-nav-active-item"></span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsvmware-product-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-product-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsvmware-product-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsvmware-product"><span class="">Integration with VMware</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion"><span class="">with Bitfusion</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion"><span class="">Bitfusion</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/kubeflow-tutorial/lab5_pipeline_complete/README.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/kubeflow-tutorial/lab5_pipeline_complete/README.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/kubeflow-tutorial/lab5_pipeline_complete/README.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+  
+</div>
+
+            
+
+
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#full-source">Full Source</a></li>
+    <li><a href="#table-of-contents">Table of Contents</a></li>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#understand-pipeline-and-pipeline-components">Understand Pipeline and Pipeline Components</a></li>
+    <li><a href="#example-overview">Example Overview</a>
+      <ul>
+        <li><a href="#example-1-facial-keypoint-detection">Example 1: Facial Keypoint Detection</a></li>
+        <li><a href="#example-2-g-research-crypto-forecasting">Example 2: G-Research Crypto Forecasting</a></li>
+        <li><a href="#about-model-1">About Model</a></li>
+        <li><a href="#about-pipeline-1">About Pipeline</a></li>
+        <li><a href="#design-pipeline">Design Pipeline</a></li>
+      </ul>
+    </li>
+    <li><a href="#running-a-pipeline">Running a Pipeline</a>
+      <ul>
+        <li><a href="#upload-the-pipeline-to-kubeflow-ui">Upload the pipeline to Kubeflow UI</a></li>
+        <li><a href="#create-experiment-and-run">Create experiment and run</a></li>
+        <li><a href="#check-logs-and-outputs">Check logs and outputs</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+
+
+
+            
+
+	
+		
+
+
+
+  
+  
+
+	
+		
+
+
+
+  
+  
+
+	
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/">Documentation</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/">Kubeflow Tutorial</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/readme/"></a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1></h1>
+	
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<h1 id="lab-7-kubeflow-pipeline">Lab 7: Kubeflow Pipeline</h1>
+<h2 id="full-source">Full Source</h2>
+<p>You can view and download the complete repo from (including notebooks, datasets, source codes, Dockerfile, etc) <a href="https://gitlab.eng.vmware.com/models/kubeflow-tutorial/-/tree/main/labs/lab7_pipeline">here</a>.</p>
+<hr>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#understand-pipeline-and-pipeline-components">Understand pipeline and pipeline components</a></li>
+<li><a href="#example-overview">Example overview</a>
+<ul>
+<li><a href="#example-1-facial-keypoint-detection">Example 1 facial keypoint detection: build pipeline from docker images</a></li>
+<li><a href="#example-2-g-research-crypto-forecasting">Example 2 g-research crypto forecasting: build pipeline from notebook directly</a></li>
+</ul>
+</li>
+<li><a href="#running-a-pipeline">Running a pipeline</a></li>
+</ul>
+<hr>
+<h2 id="introduction">Introduction</h2>
+<p>Kubeflow Pipelines is a platform for building and deploying portable, scalable machine learning (ML) workflows based on Docker containers. Each pipeline represents an ML workflow, and includes the specifications of all inputs needed to run the pipeline, as well the outputs of all components.</p>
+<p>Kubeflow Pipelines is one of the most powerful and popular features of Kubeflow. In this lab, we would guide you through two concrete examples  to build up and run Kubeflow pipelines in two different ways.</p>
+<ul>
+<li><a href="https://gitlab.eng.vmware.com/models/kubeflow-tutorial/-/blob/main/labs/lab7_pipeline/example1_facialKeypoint.ipynb">Example 1 Facial Keypoint Detection: build pipeline from docker images</a></li>
+<li><a href="https://gitlab.eng.vmware.com/models/kubeflow-tutorial/-/blob/main/labs/lab7_pipeline/example2_gResearch.ipynb">Example 2 G-Research Crypto Forecasting: build pipeline from notebook directly</a></li>
+</ul>
+<p><em>For each example, we provide you with a already-compiled pipeline YAML files for quick-test purpose. If you prefer that, feel free to skip to pipeline running part and use them.</em></p>
+<h2 id="understand-pipeline-and-pipeline-components">Understand Pipeline and Pipeline Components</h2>
+<p>A Kubeflow pipeline is a portable and scalable definition of an ML workflow, based on containers. A pipeline is composed of a set of input parameters and a list of the steps in this workflow. Each step in a pipeline is an instance of a component, which is represented as an instance of <code>ContainerOp</code>.</p>
+<p>A pipeline component is a containerized application that performs one step in a pipeline’s workflow. Pipeline components are defined in component specifications. More details about components specifications can be found <a href="https://www.kubeflow.org/docs/components/pipelines/v1/reference/component-spec/">here</a>.</p>
+<p>Each step in our pipeline’s workflow is an instance of a component. When we define our pipeline, we specify the source of each step’s inputs. Step inputs can be set from the pipeline’s input arguments, constants, or step inputs can depend on the outputs of other steps in this pipeline. Kubeflow Pipelines uses these dependencies to define our pipeline’s workflow as a graph.</p>
+<h2 id="example-overview">Example Overview</h2>
+<p>We suggest you go through examples in order, as some concept explanations are more detailed in Example 1.</p>
+<h3 id="example-1-facial-keypoint-detection">Example 1: Facial Keypoint Detection</h3>
+<p><em>Notebook, Model source codes, datasets, Dockerfiles, example pipeline YAML file and example pipeline logs are all included in repo.</em></p>
+<h4 id="about-model">About Model</h4>
+<p>This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition.</p>
+<p>There are two main tasks: train and evaluation. Each would be build as a pipeline component later.</p>
+<p>Datasets for training can be found in <a href="./train/my_data">train/my_data</a>.</p>
+<p>More details about this model itself can be found <a href="https://www.kaggle.com/competitions/facial-keypoints-detection">here on Kaggle Competition page</a>.</p>
+<h4 id="about-pipeline">About Pipeline</h4>
+<p><strong>In this example, we would first containzernize each pipeline component as a docker image, and then build pipeline from these components&rsquo; images.</strong></p>
+<p>When Kubeflow Pipelines executes a component, a container image is started in a Kubernetes Pod and your component’s inputs are passed in as command-line arguments.</p>
+<p>Therefore, while designing pipeline components, we need to consider following issues:</p>
+<ul>
+<li>Which inputs can be passed to our component by value? And which inputs, which cannot be directly passed as a command-line argument, should be passed to your component by a reference to the input’s path?</li>
+<li>To return an output from our component, the output’s data must be stored as a file. We need to let Kubeflow Pipelines know what outputs our component produces, so that when our pipeline runs, Kubeflow Pipelines can pass the paths that we use to store our component’s outputs as inputs to our component.</li>
+<li>Since your inputs and output paths are passed in as command-line arguments, your component’s code must be able to read inputs from the command line.</li>
+</ul>
+<p>And in this example, specifically, a component specification should define:</p>
+<ul>
+<li>The component’s inputs and outputs</li>
+<li>The container image that your component’s code runs in, the command to use to run your component’s code, and the command-line arguments to pass to your component’s code</li>
+<li>The component’s metadata, such as the name and description</li>
+</ul>
+<h3 id="example-2-g-research-crypto-forecasting">Example 2: G-Research Crypto Forecasting</h3>
+<p><em>Notebook, example pipeline YAML file and example pipeline logs are included in repo.</em></p>
+<h3 id="about-model-1">About Model</h3>
+<p>This model comes from Kaggle Competition. Over $40 billion worth of cryptocurrencies are traded every day. The objective of this task is to correctly forecast short term returns in 14 popular cryptocurrencies. <a href="https://www.gresearch.co.uk/">G-Research</a> is Europe’s leading quantitative finance research firm, and partered with <a href="https://www.cambridgespark.com">Cambridge Spark</a> for this Kaggle Competition.</p>
+<p>The dataset this model would use contains information on historic trades for several cryptoassets, such as Bitcoin and Ethereum. Dataset would be downloaded from Kaggle.</p>
+<p>More details about this model and dataset itself or Kaggle Competition can be found <a href="https://www.kaggle.com/competitions/g-research-crypto-forecasting/overview">here</a>.</p>
+<h3 id="about-pipeline-1">About Pipeline</h3>
+<h3 id="design-pipeline">Design Pipeline</h3>
+<p><strong>In this example, we would directly build pipeline components in notebook, from model itself. Some modifications are required to the original model function.</strong></p>
+<p>Again, we design our pipeline component by component. We build our components this time as Python function-based components. The Kubeflow Pipelines SDK makes it easier to build lightweight Python function-based components by saving the effort of creating a component specification. Python function-based components make it easier to build pipeline components by building the component specification for you. Python function-based components also handle the complexity of passing inputs into your component and passing your function’s outputs back to your pipeline.</p>
+<p>Let&rsquo;s walk through this concrete example to understand above ideas better.</p>
+<p>Note that the overall workflow follows from original model itself. So please do not freak out when you see long, heavy code cells.</p>
+<p>Basically, the following modifications were required to the original function.</p>
+<ul>
+<li>The import statements were moved inside of the function. Python function-based components require standalone Python functions. This means that any required import statements must be defined within the function, and any helper functions must be defined within the function.</li>
+<li>The function’s arguments all include <code>data_path</code> which specifies the location for data storage, and also accessing. This lets Kubeflow Pipelines know the where to extract the data in zipped tar file into, where your function stores the processed data or model, and where to access it and use it as inputs for components.</li>
+</ul>
+<h2 id="running-a-pipeline">Running a Pipeline</h2>
+<p>In both examples, we compiled the pipeline as a YAML file. So here we provide you with a brief guide on how to run a pipeline.</p>
+<p>We would use Example 2: G-Research Crypto Forecasting as example.</p>
+<h3 id="upload-the-pipeline-to-kubeflow-ui">Upload the pipeline to Kubeflow UI</h3>
+<p>Following our notebook, you should be able to see a file called <code>pipeline_gResearch.yaml</code>, under the same directory of the example 2 notebook. Download <code>pipeline_gResearch.yaml</code>, and upload it to Pipelines on Kubeflow UI.</p>
+<p><img src="./img/g1.png" alt="g1"></p>
+<p><img src="./img/g2.png" alt="g2"></p>
+<p><img src="./img/g3.png" alt="g3"></p>
+<p>This pipeline graph is more complex than the one in Example 1. You may take some time going through it.</p>
+<h3 id="create-experiment-and-run">Create experiment and run</h3>
+<p>Create an experiment for this pipeline, and create a run. This time, you need to provide two inputs, <code>dataset</code> and <code>data_path</code>, exactly the ones for our first step Data Download. If you do not intend to make any personalization on datasets and data path, enter following values</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># arguments</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># &#34;&#34; not needed while inputting them</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataset</span> <span class="o">=</span> <span class="s2">&#34;g-research-crypto-forecasting&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">data_path</span> <span class="o">=</span> <span class="s2">&#34;/mnt&#34;</span>
+</span></span></code></pre></div><p><img src="./img/g4.png" alt="g4"></p>
+<p><img src="./img/g5.png" alt="g5"></p>
+<p>The pipeline would start to run then. You would be able to see the running process in Runs Page on Kubeflow UI.</p>
+<p><img src="./img/g6.png" alt="g6"></p>
+<p>The pipeline running may take some time, as the datasets is pretty big and there are much more steps in this example. There would be a green symbol appears next to each component after its completion. And you can always click on each component to see its details, such as its input/output, volumes, logs, and pod.</p>
+<h3 id="check-logs-and-outputs">Check logs and outputs</h3>
+<p><img src="./img/g7.png" alt="g7"></p>
+<p>After the whole pipeline finishes running, click on any of the component/step that you are interested in. You should be able to see main-logs under Input/Output, Output artifacts.</p>
+<p>Specifically, click on Evaluation Result Step, you should see &ldquo;metrics&rdquo; under Input/Output, Output artifacts. Click into them to see the evaluation metrics.</p>
+<p>We also provide you with example logs of evaluation metrics in <a href="https://gitlab.eng.vmware.com/models/kubeflow-tutorial/-/tree/main/labs/lab7_pipeline/logs">logs</a> folder.</p>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">
+  Last modified November 2, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/ea33ff7e3eaa88a7b3afec9d81b5e40846d0e212">add Kubeflow on vSphere website (ea33ff7)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark pt-3 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+      </div>
+      <div class="col text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Copyright VMware, Inc.</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/ml-ops-platform-for-vsphere/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/ml-ops-platform-for-vsphere/js/main.min.996daafaf2da35aed251c4a4417605fd236f955837f403643c6117bf904daa5f.js" integrity="sha256-mW2q&#43;vLaNa7SUcSkQXYF/SNvlVg39ANkPGEXv5BNql8=" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/ml-ops-platform-for-vsphere/js/copy-code-button.min.js"></script>
+
+
+
+
+  </body>
+</html>
