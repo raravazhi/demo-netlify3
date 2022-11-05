@@ -881,7 +881,7 @@ src=&#34;https://nbviewer.org/github/xujinheng/kubeflow-manifests/blob/main/webs
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next&lt;/h2&gt;
-&lt;p&gt;Now move forward to &lt;a href=&#34;../lab5_pipeline&#34;&gt;Lab5 Training Operators&lt;/a&gt; about Kubeflow pipeline&lt;/p&gt;
+&lt;p&gt;Now move forward to &lt;a href=&#34;../lab5_pipeline/lab_pipeline&#34;&gt;Lab5 Pipeline&lt;/a&gt; about Kubeflow pipeline&lt;/p&gt;
 
       </description>
     </item>
