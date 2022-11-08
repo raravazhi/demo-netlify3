@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kubeflow on vSphere – Kubeflow Tutorial</title>
+    <title>Kubeflow on vSphere – Tutorials</title>
     <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/</link>
-    <description>Recent content in Kubeflow Tutorial on Kubeflow on vSphere</description>
+    <description>Recent content in Tutorials on Kubeflow on vSphere</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/index.xml" rel="self" type="application/rss+xml" />
