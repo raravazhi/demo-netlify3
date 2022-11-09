@@ -17,7 +17,7 @@
       "articleSection" : "docs",
       "name" : "",
       "headline" : "",
-      "description" : "Lab 7: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk ! pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.\nAbout this Model This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition.",
+      "description" : "Lab 5: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk !pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.\nAbout this Model This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition.",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/kubeflow-tutorial\/lab5_pipeline_complete\/markdowns\/example1_facialkeypoint\/",
-      "wordCount" : "2382",
+      "wordCount" : "2301",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -43,28 +43,28 @@
 <meta name="theme-color" content="#4279f4">
 
 <title>Kubeflow on vSphere</title>
-<meta name="description" content="Lab 7: Kubeflow Pipeline
+<meta name="description" content="Lab 5: Kubeflow Pipeline
 Install Kubeflow Pipeline Package
 !pip install kfp --upgrade --user --quiet
 # confirm the kfp sdk
-! pip show kfp
+!pip show kfp
 Example 1: …">
 <meta property="og:title" content="" />
-<meta property="og:description" content="Lab 7: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk ! pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.
+<meta property="og:description" content="Lab 5: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk !pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.
 About this Model This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/markdowns/example1_facialkeypoint/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-11-02T15:23:26+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<meta property="article:modified_time" content="2022-11-09T12:18:33+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content="Lab 7: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk ! pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.
+<meta itemprop="description" content="Lab 5: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk !pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.
 About this Model This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition.">
-<meta itemprop="dateModified" content="2022-11-02T15:23:26+08:00" />
-<meta itemprop="wordCount" content="2382">
+<meta itemprop="dateModified" content="2022-11-09T12:18:33+08:00" />
+<meta itemprop="wordCount" content="2301">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Lab 7: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk ! pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.
+<meta name="twitter:description" content="Lab 5: Kubeflow Pipeline Install Kubeflow Pipeline Package !pip install kfp --upgrade --user --quiet # confirm the kfp sdk !pip show kfp Example 1: Facial Keypoint Detection In this example, we would build pipeline components from docker images.
 About this Model This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition."/>
 
 
@@ -357,18 +357,17 @@ About this Model This model comes from Kaggle Competition. The objective of this
 
 		
 	</header>    
-	<h1 id="lab-7-kubeflow-pipeline">Lab 7: Kubeflow Pipeline</h1>
+	<h1 id="lab-5-kubeflow-pipeline">Lab 5: Kubeflow Pipeline</h1>
 <h3 id="install-kubeflow-pipeline-package">Install Kubeflow Pipeline Package</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">kfp</span> <span class="o">--</span><span class="n">upgrade</span> <span class="o">--</span><span class="n">user</span> <span class="o">--</span><span class="n">quiet</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># confirm the kfp sdk</span>
-</span></span><span class="line"><span class="cl"><span class="err">!</span> <span class="n">pip</span> <span class="n">show</span> <span class="n">kfp</span>
+</span></span><span class="line"><span class="cl"><span class="err">!</span><span class="n">pip</span> <span class="n">show</span> <span class="n">kfp</span>
 </span></span></code></pre></div><h2 id="example-1-facial-keypoint-detection">Example 1: Facial Keypoint Detection</h2>
 <p>In this example, we would build pipeline components from <em><strong>docker images</strong></em>.</p>
 <h3 id="about-this-model">About this Model</h3>
 <p>This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition.</p>
 <p>There are two main tasks: train and evaluation. Each would be build as a pipeline component later.</p>
-<p>Datasets for training can be found in <a href="./train/my_data">train/my_data</a>.</p>
-<p>More details about this model itself can be found <a href="https://www.kaggle.com/competitions/facial-keypoints-detection">here on Kaggle Competition page</a>.</p>
+<p>Please download datasets at <a href="https://www.kaggle.com/competitions/facial-keypoints-detection">https://www.kaggle.com/competitions/facial-keypoints-detection</a> and put them at the path: <a href="./train/my_data">train/my_data</a>, and you can also find more details about this model itself.</p>
 <h3 id="design-pipeline-components">Design Pipeline Components</h3>
 <p>When Kubeflow Pipelines executes a component, a container image is started in a Kubernetes Pod and your component’s inputs are passed in as command-line arguments.</p>
 <p>Therefore, while designing pipeline components, we need to consider following issues:</p>
@@ -528,9 +527,7 @@ About this Model This model comes from Kaggle Competition. The objective of this
 <p><em><strong>OPTION 1</strong></em></p>
 <p>We have already prepared you built image. If you did not personalize the codes or change the paths of files, feel free to directly use them and skip this part. The location of the image is already in pipeline generation codes.</p>
 <p>You may also pull the image to your local if you want.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">pull</span> <span class="n">harbor</span><span class="o">-</span><span class="n">repo</span><span class="o">.</span><span class="n">vmware</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zxintong</span><span class="o">/</span><span class="n">docker_images</span><span class="nd">@sha256</span><span class="p">:</span><span class="mi">48</span><span class="n">cb43365f65adffc16db98bc6a05e62c13ab5dff7579d381cf8ef8d2e1da489</span>
-</span></span></code></pre></div><p>If you are Mac with M1 chip, you may need to pull following image:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">pull</span> <span class="n">harbor</span><span class="o">-</span><span class="n">repo</span><span class="o">.</span><span class="n">vmware</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">zxintong</span><span class="o">/</span><span class="n">docker_images</span><span class="nd">@sha256</span><span class="p">:</span><span class="mi">3418</span><span class="n">cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">pull</span> <span class="n">projects</span><span class="o">.</span><span class="n">registry</span><span class="o">.</span><span class="n">vmware</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">kubeflow</span><span class="o">/</span><span class="n">lab_pipeline</span><span class="nd">@sha256</span><span class="p">:</span><span class="mi">3418</span><span class="n">cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83</span>
 </span></span></code></pre></div><p><em><strong>OPTION 2</strong></em></p>
 <p>Or, you can also build Docker images on your own locally</p>
 <p><strong>Install Docker</strong></p>
@@ -538,17 +535,15 @@ About this Model This model comes from Kaggle Competition. The objective of this
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">login</span>
 </span></span></code></pre></div><p><strong>Build images</strong></p>
 <p>Use <code>docker build</code> command to build Docker images.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">dockerfile_path</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">docker_username</span><span class="o">&gt;/&lt;</span><span class="n">docker_imagename</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">tag</span><span class="o">&gt;</span> <span class="o">.</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">amd64</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">dockerfile_path</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">docker_username</span><span class="o">&gt;/&lt;</span><span class="n">docker_imagename</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">tag</span><span class="o">&gt;</span> <span class="o">.</span>
 </span></span></code></pre></div><p>If you only have one Dockerfile where you run above command, you may not need to specify <code>-f &lt;dockerfile_path&gt;</code>.</p>
 <p>Feel free to directly run following command to build docker image in this notebook, if you did not change paths of files.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">docker_images</span><span class="p">:</span><span class="n">facial</span> <span class="o">.</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">amd64</span> <span class="o">-</span><span class="n">t</span> <span class="n">docker_images</span><span class="p">:</span><span class="n">facial</span> <span class="o">.</span>
 </span></span></code></pre></div><p>Or, you can also build images for train and evaluate separately.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">cd</span> <span class="n">train</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">docker_images</span><span class="p">:</span><span class="n">facial_train</span> <span class="o">.</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">amd64</span> <span class="o">-</span><span class="n">t</span> <span class="n">docker_images</span><span class="p">:</span><span class="n">facial_train</span> <span class="o">.</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">cd</span> <span class="o">../</span><span class="n">evaluate</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">docker_images</span><span class="p">:</span><span class="n">facial_eval</span> <span class="o">.</span>
-</span></span></code></pre></div><p><em><strong>Note: if you are Mac M1 chip user, you may need to add following flag to <code>docker run</code></strong></em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">amd64</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span><span class="n">dockerfile_path</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">t</span> <span class="o">&lt;</span><span class="n">docker_username</span><span class="o">&gt;/&lt;</span><span class="n">docker_imagename</span><span class="o">&gt;</span><span class="p">:</span><span class="o">&lt;</span><span class="n">tag</span><span class="o">&gt;</span> <span class="o">.</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="err">!</span><span class="n">docker</span> <span class="n">build</span> <span class="o">--</span><span class="n">platform</span> <span class="n">linux</span><span class="o">/</span><span class="n">amd64</span> <span class="o">-</span><span class="n">t</span> <span class="n">docker_images</span><span class="p">:</span><span class="n">facial_eval</span> <span class="o">.</span>
 </span></span></code></pre></div><h3 id="build-pipeline">Build Pipeline</h3>
 <p>So far we have finished designing pipeline components and containernizing them. It is now time for our pipeline generation.</p>
 <h4 id="create-component-specifications">Create Component Specifications</h4>
@@ -575,9 +570,7 @@ About this Model This model comes from Kaggle Competition. The objective of this
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dsl</span><span class="o">.</span><span class="n">ContainerOp</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Train&#39;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;harbor-repo.vmware.com/zxintong/docker_images@sha256:48cb43365f65adffc16db98bc6a05e62c13ab5dff7579d381cf8ef8d2e1da489&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># IF YOU ARE MAC M1 CHIP USER, USER FOLLOWING</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># image = &#39;harbor-repo.vmware.com/zxintong/docker_images@sha256:3418cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;projects.registry.vmware.com/kubeflow/lab_pipeline@sha256:3418cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;python3&#39;</span><span class="p">,</span> <span class="s1">&#39;/train/train.py&#39;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="s1">&#39;--trial&#39;</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span>
@@ -595,9 +588,7 @@ About this Model This model comes from Kaggle Competition. The objective of this
 </span></span></code></pre></div><p>We then create a <code>ContainerOp</code> instance, which would be understood and used as &ldquo;a step&rdquo; in our pipeline, and return this &ldquo;step&rdquo;.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">return</span> <span class="n">dsl</span><span class="o">.</span><span class="n">ContainerOp</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Train&#39;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;harbor-repo.vmware.com/zxintong/docker_images@sha256:48cb43365f65adffc16db98bc6a05e62c13ab5dff7579d381cf8ef8d2e1da489&#39;</span><span class="p">,</span> 
-</span></span><span class="line"><span class="cl">        <span class="c1"># IF YOU ARE MAC M1 CHIP USER, USER FOLLOWING</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># image = &#39;harbor-repo.vmware.com/zxintong/docker_images@sha256:3418cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;projects.registry.vmware.com/kubeflow/lab_pipeline@sha256:3418cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83&#39;</span><span class="p">,</span> 
 </span></span><span class="line"><span class="cl">        <span class="n">command</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;python3&#39;</span><span class="p">,</span> <span class="s1">&#39;/train/train.py&#39;</span><span class="p">],</span>
 </span></span><span class="line"><span class="cl">        <span class="n">arguments</span><span class="o">=</span><span class="p">[</span>
 </span></span><span class="line"><span class="cl">            <span class="s1">&#39;--trial&#39;</span><span class="p">,</span> <span class="n">trial</span><span class="p">,</span>
@@ -608,7 +599,7 @@ About this Model This model comes from Kaggle Competition. The objective of this
 </span></span><span class="line"><span class="cl">            <span class="s1">&#39;/data&#39;</span><span class="p">:</span> <span class="n">vop</span><span class="o">.</span><span class="n">volume</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">)</span>
-</span></span></code></pre></div><p>We need to specify the inputs (<code>trial</code>, <code>epoch</code>, and <code>patience</code>) in <code>arguments</code>, container image in <code>image</code>, and volume for data storage in <code>pvolumes</code>. Note that here in <code>image</code>, we provide you with our built images, containing both <code>train</code> folder and <code>evaluate</code> folder, stored on our internal Harbor repo. If you want to use your own image, please remember to change this value.</p>
+</span></span></code></pre></div><p>We need to specify the inputs (<code>trial</code>, <code>epoch</code>, and <code>patience</code>) in <code>arguments</code>, container image in <code>image</code>, and volume for data storage in <code>pvolumes</code>. Note that here in <code>image</code>, we provide you with our built images, containing both <code>train</code> folder and <code>evaluate</code> folder, stored on our <code>projects.registry</code> repo. If you want to use your own image, please remember to change this value.</p>
 <p>We also need to specify <code>command</code>. In this provided case, as we containernize the image at root directory, in command we need <code>python3 /train/train.py</code>. (If you containernize Train component and Evaluate component one by one in each own folder, you may need to change this value to <code>python3 train.py</code>.)</p>
 <p><strong>Evaluate Component</strong></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># Evaluate component takes Train ContainerOp as input, and access Train ContainerOp&#39;s pvolumes to get the trained model stored in it</span>
@@ -617,9 +608,7 @@ About this Model This model comes from Kaggle Competition. The objective of this
 </span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">Evaluate</span><span class="p">(</span><span class="n">comp1</span><span class="p">):</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">dsl</span><span class="o">.</span><span class="n">ContainerOp</span><span class="p">(</span>
 </span></span><span class="line"><span class="cl">        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Evaluate&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;harbor-repo.vmware.com/zxintong/docker_images@sha256:48cb43365f65adffc16db98bc6a05e62c13ab5dff7579d381cf8ef8d2e1da489&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># IF YOU ARE MAC M1 CHIP USER, USER FOLLOWING</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># image = &#39;harbor-repo.vmware.com/zxintong/docker_images@sha256:3418cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">image</span> <span class="o">=</span> <span class="s1">&#39;projects.registry.vmware.com/kubeflow/lab_pipeline@sha256:3418cabc178b04a24e0f2b767ccaf4cc0e3fad68c3a6f407b4508ace433b5d83&#39;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">        <span class="n">pvolumes</span><span class="o">=</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="s1">&#39;/data&#39;</span><span class="p">:</span> <span class="n">comp1</span><span class="o">.</span><span class="n">pvolumes</span><span class="p">[</span><span class="s1">&#39;/data&#39;</span><span class="p">]</span>
 </span></span><span class="line"><span class="cl">        <span class="p">},</span>
@@ -643,7 +632,7 @@ About this Model This model comes from Kaggle Competition. The objective of this
 </span></span></code></pre></div><p>You should now be able to see a file called <code>face_pipeline.yaml</code> in current directory, same as this notebook.</p>
 <h3 id="run-pipeline">Run Pipeline</h3>
 <p>In our last cell, we compile our pipeline as a YAML file.</p>
-<p>Note that for testing purpose, we also provide you with two already-compiled pipeline YAML files, <code>face_pipeline_test_default.yaml</code> and <code>face_pipeline_test_amd64.yaml</code>. Feel free to directly download and use them.</p>
+<p>Note that for testing purpose, we also provide you with two already-compiled pipeline YAML files, <code>face_pipeline_test.yaml</code>. Feel free to directly download and use them.</p>
 <p>To run this pipeline, go to Kubeflow UI. Navigate to Pipelines Page. Upload this pipeline by choosing &ldquo;upload a file&rdquo; option. Choose the YAML file we created just now.</p>
 <p><img src="./img/face1.png" alt="face1"></p>
 <p><img src="./img/face2.png" alt="face2"></p>
@@ -663,7 +652,7 @@ About this Model This model comes from Kaggle Competition. The objective of this
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 2, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/ea33ff7e3eaa88a7b3afec9d81b5e40846d0e212">add Kubeflow on vSphere website (ea33ff7)</a>
+  Last modified November 9, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/46fc1cbe02dc30809633047936da7a16d7d528e6">update lab 4 md, lab 5 (#4) (46fc1cb)</a>
 </div>
 
 </div>
