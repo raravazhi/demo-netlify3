@@ -14,37 +14,11 @@
     
     
     <item>
-      <title>Docs: About</title>
-      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/about/</guid>
-      <description>
-        
-        
-        &lt;h2 id=&#34;about-kubeflow&#34;&gt;About Kubeflow&lt;/h2&gt;
-&lt;hr&gt;
-&lt;p&gt;We maintained a documentation &lt;a href=&#34;https://core.vmware.com/aiml-solutions&#34;&gt;Running Kubeflow on AI-Ready Enterprise Platform on VMware vSphere 7 with VMware Tanzu Kubernetes Grid&lt;/a&gt;. If you want to know how to deploy and use vanilla Kubeflow on vSphere 7 with TKG, this documentation is good start.&lt;/p&gt;
-&lt;h4 id=&#34;what-is-kubeflow&#34;&gt;&lt;strong&gt;What is Kubeflow?&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;Kubeflow is a free and open-source platform for machine learning on Kubernetes. The Kubeflow project has multiple distinct software components which each address specific stages of the machine learning lifecycle, including model development, model training, model serving, and automated machine learning. Each component of Kubeflow can be deployed separately, and it is not a requirement to deploy every component.&lt;/p&gt;
-&lt;p&gt;The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable. It provides a straightforward way to deploy best-of-breed open-source systems for ML to diverse infrastructures. Anywhere you are running Kubernetes, you should be able to run Kubeflow. Kubeflow is supported by the biggest names in tech, receiving over 1000 contributions from companies like Google, AWS, Microsoft, VMware, Red Hat, Bloomberg, Cisco, IBM and Intel.&lt;/p&gt;
-&lt;h4 id=&#34;features&#34;&gt;&lt;strong&gt;Features&lt;/strong&gt;&lt;/h4&gt;
-&lt;p&gt;Kubeflow includes services to create and manage &lt;em&gt;&lt;strong&gt;interactive Jupyter notebooks&lt;/strong&gt;&lt;/em&gt;. You can customize your notebook deployment and your compute resources to suit your data science needs. Experiment with your workflows locally, then deploy them to a cloud when you&amp;rsquo;re ready.&lt;/p&gt;
-&lt;p&gt;Kubeflow provides a custom &lt;em&gt;&lt;strong&gt;TensorFlow&lt;/strong&gt;&lt;/em&gt; training job operator that you can use to train your ML model. In particular, Kubeflow&amp;rsquo;s job operator can handle distributed TensorFlow training jobs. Configure the training controller to use CPUs or GPUs and to suit various cluster sizes.&lt;/p&gt;
-&lt;p&gt;Kubeflow supports a TensorFlow Serving container to export trained TensorFlow &lt;em&gt;&lt;strong&gt;models&lt;/strong&gt;&lt;/em&gt; to Kubernetes. Kubeflow is also integrated with Seldon Core, an open source platform for deploying machine learning models on Kubernetes, NVIDIA Triton Inference Server for maximized GPU utilization when deploying ML/DL models at scale, and MLRun Serving, an open-source serverless framework for deployment and monitoring of real-time ML/DL pipelines.&lt;/p&gt;
-&lt;p&gt;Kubeflow &lt;em&gt;&lt;strong&gt;Pipelines&lt;/strong&gt;&lt;/em&gt; is a comprehensive solution for deploying and managing end-to-end ML workflows. Use Kubeflow Pipelines for rapid and reliable experimentation. You can schedule and compare runs, and examine detailed reports on each run.&lt;/p&gt;
-&lt;p&gt;In addition, Kubeflow is also working hard to extend the support of &lt;em&gt;&lt;strong&gt;PyTorch, Apache MXNet, MPI, XGBoost, Chainer, and more&lt;/strong&gt;&lt;/em&gt;. It also integrates with &lt;em&gt;&lt;strong&gt;Istio and Ambassador&lt;/strong&gt;&lt;/em&gt; for ingress, &lt;em&gt;&lt;strong&gt;Nuclio&lt;/strong&gt;&lt;/em&gt; as a fast multi-purpose serverless framework, and &lt;em&gt;&lt;strong&gt;Pachyderm&lt;/strong&gt;&lt;/em&gt; for managing your data science pipelines.&lt;/p&gt;
-&lt;p&gt;Kubeflow community is an open and welcoming community of software developers, data scientists, and organizations. Feel free to join its Slack Workspace!&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
       <title>Docs: Bitfusion</title>
-      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/</link>
+      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/</guid>
+      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/</guid>
       <description>
         
         
@@ -219,7 +193,61 @@
     </item>
     
     <item>
-      <title>Docs: Lab1 Getting Started</title>
+      <title>Docs: Introduction</title>
+      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/introduction/</guid>
+      <description>
+        
+        
+        &lt;h2 id=&#34;about-kubeflow&#34;&gt;About Kubeflow&lt;/h2&gt;
+&lt;hr&gt;
+&lt;p&gt;We maintained a documentation &lt;a href=&#34;https://core.vmware.com/aiml-solutions&#34;&gt;Running Kubeflow on AI-Ready Enterprise Platform on VMware vSphere 7 with VMware Tanzu Kubernetes Grid&lt;/a&gt;. If you want to know how to deploy and use vanilla Kubeflow on vSphere 7 with TKG, this documentation is good start.&lt;/p&gt;
+&lt;h4 id=&#34;what-is-kubeflow&#34;&gt;&lt;strong&gt;What is Kubeflow?&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Kubeflow is a free and open-source platform for machine learning on Kubernetes. The Kubeflow project has multiple distinct software components which each address specific stages of the machine learning lifecycle, including model development, model training, model serving, and automated machine learning. Each component of Kubeflow can be deployed separately, and it is not a requirement to deploy every component.&lt;/p&gt;
+&lt;p&gt;The Kubeflow project is dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable. It provides a straightforward way to deploy best-of-breed open-source systems for ML to diverse infrastructures. Anywhere you are running Kubernetes, you should be able to run Kubeflow. Kubeflow is supported by the biggest names in tech, receiving over 1000 contributions from companies like Google, AWS, Microsoft, VMware, Red Hat, Bloomberg, Cisco, IBM and Intel.&lt;/p&gt;
+&lt;h4 id=&#34;features&#34;&gt;&lt;strong&gt;Features&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Kubeflow includes services to create and manage &lt;em&gt;&lt;strong&gt;interactive Jupyter notebooks&lt;/strong&gt;&lt;/em&gt;. You can customize your notebook deployment and your compute resources to suit your data science needs. Experiment with your workflows locally, then deploy them to a cloud when you&amp;rsquo;re ready.&lt;/p&gt;
+&lt;p&gt;Kubeflow provides a custom &lt;em&gt;&lt;strong&gt;TensorFlow&lt;/strong&gt;&lt;/em&gt; training job operator that you can use to train your ML model. In particular, Kubeflow&amp;rsquo;s job operator can handle distributed TensorFlow training jobs. Configure the training controller to use CPUs or GPUs and to suit various cluster sizes.&lt;/p&gt;
+&lt;p&gt;Kubeflow supports a TensorFlow Serving container to export trained TensorFlow &lt;em&gt;&lt;strong&gt;models&lt;/strong&gt;&lt;/em&gt; to Kubernetes. Kubeflow is also integrated with Seldon Core, an open source platform for deploying machine learning models on Kubernetes, NVIDIA Triton Inference Server for maximized GPU utilization when deploying ML/DL models at scale, and MLRun Serving, an open-source serverless framework for deployment and monitoring of real-time ML/DL pipelines.&lt;/p&gt;
+&lt;p&gt;Kubeflow &lt;em&gt;&lt;strong&gt;Pipelines&lt;/strong&gt;&lt;/em&gt; is a comprehensive solution for deploying and managing end-to-end ML workflows. Use Kubeflow Pipelines for rapid and reliable experimentation. You can schedule and compare runs, and examine detailed reports on each run.&lt;/p&gt;
+&lt;p&gt;In addition, Kubeflow is also working hard to extend the support of &lt;em&gt;&lt;strong&gt;PyTorch, Apache MXNet, MPI, XGBoost, Chainer, and more&lt;/strong&gt;&lt;/em&gt;. It also integrates with &lt;em&gt;&lt;strong&gt;Istio and Ambassador&lt;/strong&gt;&lt;/em&gt; for ingress, &lt;em&gt;&lt;strong&gt;Nuclio&lt;/strong&gt;&lt;/em&gt; as a fast multi-purpose serverless framework, and &lt;em&gt;&lt;strong&gt;Pachyderm&lt;/strong&gt;&lt;/em&gt; for managing your data science pipelines.&lt;/p&gt;
+&lt;p&gt;Kubeflow community is an open and welcoming community of software developers, data scientists, and organizations. Feel free to join its Slack Workspace!&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Prerequisites</title>
+      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/</guid>
+      <description>
+        
+        
+        &lt;ul&gt;
+&lt;li&gt;If you don&amp;rsquo;t have any hardware resource or do not want to setup from the ground, reach out to us at the slack channel &lt;a href=&#34;https://vmware.slack.com/archives/C046YEZMWQK&#34;&gt;#peach&lt;/a&gt; to request an account for Kubeflow and JupyterLab extension trials.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;vSphere 8.0 with Tanzu Deployment&lt;/strong&gt;: For a greenfield deployment (no vSphere with Tanzu deployed yet), you need to deploy vSphere with Tanzu first.
+&lt;ul&gt;
+&lt;li&gt;For the standard and regular setup, please refer to VMware official document &lt;a href=&#34;https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-152BE7D2-E227-4DAA-B527-557B564D9718.html&#34;&gt;vSphere with Tanzu Configuration and Management&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;If you only have limited hardware resource, for example, one server node, please refer to &lt;a href=&#34;https://confluence.eng.vmware.com/display/VCP/TKG+demo+appliance+setup+guide&#34;&gt;this document&lt;/a&gt; of vSphere with Tanzu deployment for testing purpose.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;If you want to use Nvidia GPU resources on vSphere platform, setup vGPU or Bitfusion under TKG with following documents&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;vGPU&lt;/strong&gt;: &lt;a href=&#34;https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-2B4CAE86-BAF4-4411-ABB1-D5F2E9EF0A3D.html&#34;&gt;Deploy AI/ML Workloads on Tanzu Kubernetes Clusters&lt;/a&gt; / &lt;a href=&#34;https://wiki.eng.vmware.com/IDEsxGpu/2022/Drivers&#34;&gt;Internal Docs and Resources&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bitfusion&lt;/strong&gt;: &lt;a href=&#34;https://confluence.eng.vmware.com/pages/viewpage.action?pageId=1512830863&#34;&gt;bitfusion_device_plugin deployment on TKG 1.2+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Users and Login</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -350,35 +378,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h2&gt;
 &lt;hr&gt;
-&lt;p&gt;Now you are ready to move to the next labs &lt;a href=&#34;../lab2&#34;&gt;Lab2 Notebook&lt;/a&gt; about Data cleaning, EDA, feature engineering, model training, evaluations&lt;/p&gt;
-
-      </description>
-    </item>
-    
-    <item>
-      <title>Docs: Prerequisites</title>
-      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/</guid>
-      <description>
-        
-        
-        &lt;ul&gt;
-&lt;li&gt;If you don&amp;rsquo;t have any hardware resource or do not want to setup from the ground, reach out to us at the slack channel &lt;a href=&#34;https://vmware.slack.com/archives/C046YEZMWQK&#34;&gt;#peach&lt;/a&gt; to request an account for Kubeflow and JupyterLab extension trials.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;vSphere 8.0 with Tanzu Deployment&lt;/strong&gt;: For a greenfield deployment (no vSphere with Tanzu deployed yet), you need to deploy vSphere with Tanzu first.
-&lt;ul&gt;
-&lt;li&gt;For the standard and regular setup, please refer to VMware official document &lt;a href=&#34;https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-152BE7D2-E227-4DAA-B527-557B564D9718.html&#34;&gt;vSphere with Tanzu Configuration and Management&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;If you only have limited hardware resource, for example, one server node, please refer to &lt;a href=&#34;https://confluence.eng.vmware.com/display/VCP/TKG+demo+appliance+setup+guide&#34;&gt;this document&lt;/a&gt; of vSphere with Tanzu deployment for testing purpose.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;If you want to use Nvidia GPU resources on vSphere platform, setup vGPU or Bitfusion under TKG with following documents&lt;/strong&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;vGPU&lt;/strong&gt;: &lt;a href=&#34;https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-2B4CAE86-BAF4-4411-ABB1-D5F2E9EF0A3D.html&#34;&gt;Deploy AI/ML Workloads on Tanzu Kubernetes Clusters&lt;/a&gt; / &lt;a href=&#34;https://wiki.eng.vmware.com/IDEsxGpu/2022/Drivers&#34;&gt;Internal Docs and Resources&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bitfusion&lt;/strong&gt;: &lt;a href=&#34;https://confluence.eng.vmware.com/pages/viewpage.action?pageId=1512830863&#34;&gt;bitfusion_device_plugin deployment on TKG 1.2+&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;Now you are ready to move to the next tutorial &lt;a href=&#34;../lab2&#34;&gt;Notebook&lt;/a&gt; about Data cleaning, EDA, feature engineering, model training, evaluations&lt;/p&gt;
 
       </description>
     </item>
@@ -535,7 +535,7 @@
     </item>
     
     <item>
-      <title>Docs: Lab2 Notebooks</title>
+      <title>Docs: Notebooks</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -561,13 +561,13 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;/div&gt;
 &lt;h1 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h1&gt;
 &lt;hr&gt;
-&lt;p&gt;Now move forward to &lt;a href=&#34;../lab3&#34;&gt;Lab3 Training Operators&lt;/a&gt; about PyTorch distributed training with GPU&lt;/p&gt;
+&lt;p&gt;Now move forward to &lt;a href=&#34;../lab3&#34;&gt;Training Operators&lt;/a&gt; about PyTorch distributed training with GPU&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Lab3 PyTorch Training (PyTorchJob)</title>
+      <title>Docs: PyTorch Training (PyTorchJob)</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -592,7 +592,7 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h1 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h1&gt;
-&lt;p&gt;Now you are ready to move to the next labs &lt;a href=&#34;../lab4&#34;&gt;Lab4 Serving&lt;/a&gt; about model serving&lt;/p&gt;
+&lt;p&gt;Now you are ready to move to the next tutorial &lt;a href=&#34;../lab4&#34;&gt;Serving&lt;/a&gt; about model serving&lt;/p&gt;
 
       </description>
     </item>
@@ -850,13 +850,13 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;p&gt;After proxy is configured properly, you may need to uninstall and install Kubeflow again.&lt;/p&gt;
 &lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h2&gt;
 &lt;hr&gt;
-&lt;p&gt;We have prepared an end-to-end tutorial for you to get started quickly. Check it out &lt;a href=&#34;../../kubeflow-tutorial/&#34;&gt;Kubeflow Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We have prepared &lt;a href=&#34;../../kubeflow-tutorial&#34;&gt;a basic guide to Kubeflow on vSphere componentes&lt;/a&gt; for you to get started quickly.&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Lab4 Model Serving</title>
+      <title>Docs: Model Serving</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -881,13 +881,26 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next&lt;/h2&gt;
-&lt;p&gt;Now move forward to &lt;a href=&#34;../lab5_pipeline_complete/lab5&#34;&gt;Lab5 Pipeline&lt;/a&gt; about Kubeflow pipeline&lt;/p&gt;
+&lt;p&gt;Now move forward to &lt;a href=&#34;../lab5_pipeline_complete/lab5&#34;&gt;Pipeline&lt;/a&gt; about Kubeflow pipeline&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Lab5 Pipeline</title>
+      <title>Docs: About</title>
+      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/about/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Pipeline</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/lab5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

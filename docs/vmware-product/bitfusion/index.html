@@ -4,7 +4,6 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Hugo 0.93.0" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/index.xml">
 <meta name="robots" content="index, follow">
 
 <script type="application/ld+json">
@@ -16,9 +15,9 @@
            "@id": "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/"
       },
       "articleSection" : "docs",
-      "name" : "with Bitfusion",
-      "headline" : "with Bitfusion",
-      "description" : "Integration with VMWare Bitfusion",
+      "name" : "Bitfusion",
+      "headline" : "Bitfusion",
+      "description" : "vSphere Infrastructure resources integrate with Kubeflow components",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -29,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/vmware-product\/bitfusion\/",
-      "wordCount" : "0",
+      "wordCount" : "795",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -43,17 +42,22 @@
 <meta name="msapplication-TileColor" content="#4279f4">
 <meta name="theme-color" content="#4279f4">
 
-<title>with Bitfusion | Kubeflow on vSphere</title>
-<meta name="description" content="Integration with VMWare Bitfusion">
-<meta property="og:title" content="with Bitfusion" />
-<meta property="og:description" content="Integration with VMWare Bitfusion" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<title>Bitfusion | Kubeflow on vSphere</title>
+<meta name="description" content="vSphere Infrastructure resources integrate with Kubeflow components">
+<meta property="og:title" content="Bitfusion" />
+<meta property="og:description" content="vSphere Infrastructure resources integrate with Kubeflow components" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/" /><meta property="article:section" content="docs" />
 
-<meta itemprop="name" content="with Bitfusion">
-<meta itemprop="description" content="Integration with VMWare Bitfusion"><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="with Bitfusion"/>
-<meta name="twitter:description" content="Integration with VMWare Bitfusion"/>
+<meta property="article:modified_time" content="2022-11-11T08:55:46+00:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+
+<meta itemprop="name" content="Bitfusion">
+<meta itemprop="description" content="vSphere Infrastructure resources integrate with Kubeflow components">
+<meta itemprop="dateModified" content="2022-11-11T08:55:46+00:00" />
+<meta itemprop="wordCount" content="795">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Bitfusion"/>
+<meta name="twitter:description" content="vSphere Infrastructure resources integrate with Kubeflow components"/>
 
 
 
@@ -66,9 +70,15 @@
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
 
+    
+    <link href="/ml-ops-platform-for-vsphere/css/syntax.min.css" rel="stylesheet">
+
+    
+    <link href="/ml-ops-platform-for-vsphere/css/copy-code-button.min.css" rel="stylesheet">
+
 
   </head>
-  <body class="td-section">
+  <body class="td-page">
     <header>
       
 <nav class="js-navbar-scroll navbar navbar-expand-md navbar-dark  td-navbar">
@@ -139,13 +149,13 @@
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocs-li">
   <a href="/ml-ops-platform-for-vsphere/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ml-ops-platform-for-vspheredocs"><span class="">Documentation</span></a>
   <ul class="ul-1">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsabout-li">
-  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsabout-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocsabout-check"><a href="/ml-ops-platform-for-vsphere/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsabout"><span class="">About</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsintroduction-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsintroduction-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsintroduction-check"><a href="/ml-ops-platform-for-vsphere/docs/introduction/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsintroduction"><span class="">Introduction</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsdeployment-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeployment-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocsdeployment-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeployment"><span class="">Deployment</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocsdeployment-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeployment"><span class="">Getting Started</span></a></label>
   
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-li">
@@ -183,49 +193,46 @@
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial"><span class="">Tutorials</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial"><span class="">Basic Guides</span></a></label>
   
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1"><span class="">Lab1 Getting Started</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1"><span class="">Users and Login</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2"><span class="">Lab2 Notebooks</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2"><span class="">Notebooks</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab3/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3"><span class="">Lab3 PyTorch Training (PyTorchJob)</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab3/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3"><span class="">PyTorch Training (PyTorchJob)</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab4/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4"><span class="">Lab4 Model Serving</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab4/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4"><span class="">Model Serving</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/lab5/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5"><span class="">Lab5 Pipeline</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/lab5/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5"><span class="">Pipeline</span></a></label>
   
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocsvmware-product-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-product-check" checked/>
-  <label for="m-ml-ops-platform-for-vspheredocsvmware-product-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsvmware-product"><span class="">Integration with VMware</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocsvmware-product-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsvmware-product"><span class="">Advanced Features</span></a></label>
   
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-li">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-check" checked/>
-  <label for="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion"><span class="td-sidebar-nav-active-item">with Bitfusion</span></a></label>
-  
-  <ul class="ul-3 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion-li">
-  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusionbitfusion"><span class="">Bitfusion</span></a></label>
+  <label for="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion"><span class="td-sidebar-nav-active-item">Bitfusion</span></a></label>
   
 </li>
   </ul>
-</li>
-  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsabout-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsabout-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsabout-check"><a href="/ml-ops-platform-for-vsphere/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsabout"><span class="">About</span></a></label>
+  
 </li>
   </ul>
 </li>
@@ -237,16 +244,29 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/vmware-product/bitfusion/_index.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/vmware-product/bitfusion/_index.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/vmware-product/bitfusion/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=with%20Bitfusion" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/vmware-product/bitfusion.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/vmware-product/bitfusion.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/vmware-product/bitfusion.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=Bitfusion" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/vmware/ml-ops-platform-for-vsphere/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
 
             
 
+
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#vmware-bitfusion">VMware Bitfusion</a></li>
+    <li><a href="#installation--use-case">Installation &amp; Use Case</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#use-case">Use Case</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+</nav></div>
 
 
 
@@ -281,17 +301,17 @@
     <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/">Documentation</a>
   </li>
   <li class="breadcrumb-item">
-    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/">Integration with VMware</a>
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/">Advanced Features</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/">with Bitfusion</a>
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/">Bitfusion</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>with Bitfusion</h1>
-  <div class="lead">Integration with VMWare Bitfusion</div>
+	<h1>Bitfusion</h1>
+	<div class="lead">vSphere Infrastructure resources integrate with Kubeflow components</div>
 	<header class="article-meta">
 		
 
@@ -306,37 +326,63 @@
   
 
 		
-	</header>
-	
-        <div class="section-index">
-    
-    
-    
-    
-    
-    
-    
-    
-    <hr class="panel-line">
-        
-            
-            <div class="entry">
-                <h5>
-                    <a href="/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/bitfusion/">Bitfusion</a>
-                </h5>
-                <p>vSphere Infrastructure resources integrate with Kubeflow components</p>
-            </div>
-        
-    
-</div>
+	</header>    
+	<p>This chapter is for Kubeflow integration with vSphere Infrastructure resources such as Bitfusion server or Nvidia GPU.</p>
+<h2 id="vmware-bitfusion">VMware Bitfusion</h2>
+<p>We will explain in this session the benefits of the Kubeflow integration with VMware vSphere Bitfusion.</p>
+<p>Since AI/ML is a new type of application, we should look at its requirements and make sure we can meet them. There are two requirements we are considering here. You will likely want to run your app in containers and You will likely want to use hardware acceleration (a GPU, typically) to run your AI/ML application.</p>
+<p>However, GPUs have traditionally been difficult to share. As a piece of hardware sitting on a bus, only the software running local to that bus has been able to access it. If you move the software, you lose access. Even worse, two virtual machines, both running locally to a GPU, cannot share it. A GPU must be passed exclusively to one VM or the other. Compounding that, a single user, VM, or application seldom uses the GPU efficiently. It is not atypical for GPUs to sit idle 85% of the time. The industry average on this is hard to obtain, and it varies a lot from use-case to use-case. But if the price of a GPU seems high, it seems even higher when it is underutilized to this extent.</p>
+<p>Enter VMware vSphere Bitfusion. It lets you share GPUs in two ways. Bitfusion sets up a pool of GPU servers, and gives GPU access, remotely, across the network, to applications or microservices running on client VMs or containers set up for each piece of software. GPUs, over the course of time, can “fly” from one application to another, being allocated and deallocated dynamically whenever an application needs hardware acceleration. Bitfusion also partitions GPUs into fractions of arbitrary size (it is the GPU memory that is partitioned), so the GPU can be used concurrently by multiple applications. All this raises the utilization and efficiency of the precious GPU resources.</p>
+<p>An inteagrated <a href="https://www.vmware.com/products/vsphere.html#resources">VMware vSphere</a>, Bitfusion delivers the ability to share resources in addition to providing better utilization of existing or new hardware accelerator resources. Bitfusion can dynamically share hardware accelerator devices, such as GPUs, across a network.And this technology is for specific use with AI/ML software such as TensorFlow and PyTorch.</p>
+<p>For more information about Bitfusion, please visit <a href="https://docs.vmware.com/cn/VMware-vSphere-Bitfusion/index.html">vSphere Bitfusion document page</a>.</p>
+<h2 id="installation--use-case">Installation &amp; Use Case</h2>
+<p>The bulk of this session will be a detailed example of how to run a TensorFlow application in a containerized Bitfusion environment with remote GPU access.</p>
+<h3 id="installation">Installation</h3>
+<p><img src="../1_arch.png" alt="1"></p>
+<p>There is the achitecture of the Kubeflow Jupyer Notebook integration with Bitfsion. You can follow the official guide to install bifusion server with the <a href="https://github.com/vmware/bitfusion-with-kubernetes-integration">Bifusion Device Plugin</a>. We also upload the package of kubeflow integration with bitfusion in the <a href="https://github.com/harperjuanl/kubeflow-v1.6.0-rc.1">Github Repo</a></p>
+<p>How can we use the same image for both of Bitfusion and Nvidia. Let me show you the reason. Under the hood, when a Notebook created, we’ve modified the Kubeflow code to put bitfusion configuration info into the annotations based on your selection and record the GPU resource requests and limits.</p>
+<p>Then the Modified Notebook controller will transfer all these information related to the bitfusion to the “StatefulSet” resource objects.</p>
+<p>When “Bitfusion Device Plugin” see that information in the Pod Resource, it will inject the bitfusion client library, server config, client certificate and all necessary information automatically  to make this notebook a valid bitfusion client.</p>
+<h3 id="use-case">Use Case</h3>
+<p>When we are creating Jupyter Notebook instance in the Notebook page of the Kubeflow dashboard, we are giving the name, choose one of the Kubeflow official images. As you can see in the following figure, in the GPU resources settings, we choose th “BITFUSION” option. After launch the new notebook, we can easily run the bitfusion client applications in the Jupyter Notebook.</p>
+<p><img src="../2_notebook.png" alt="2"></p>
+<p>We are running a bitfusion benchmark applications in this use case. From the output of the benchmark, we will find information related to the Bitfusion server resource allocation. You can get the source code of the example from <a href="">here</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">%env <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/bitfusion/bitfusion-client-ubuntu2004_4.5.0-4_amd64.deb/usr/bin:/opt/conda/bin
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># test for occupy bitfusion </span>
+</span></span><span class="line"><span class="cl">!bitfusion run -n <span class="m">1</span> -- bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># TensorFlow benchmark assuming an imagenet dataset</span>
+</span></span><span class="line"><span class="cl">!bitfusion run -n <span class="m">1</span> -- python3 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>./benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data_format<span class="o">=</span>NCHW <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--batch_size<span class="o">=</span><span class="m">64</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--model<span class="o">=</span>resnet50 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--variable_update<span class="o">=</span>replicated <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--local_parameter_device<span class="o">=</span>gpu <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--nodistortions <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--num_gpus<span class="o">=</span><span class="m">1</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--num_batches<span class="o">=</span><span class="m">100</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data_dir<span class="o">=</span>../data <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--data_name<span class="o">=</span>imagenet <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>--use_fp16<span class="o">=</span>False
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># release bitfusion resource</span>
+</span></span><span class="line"><span class="cl">bitfusion release_gpus -f /tmp/bitfuiosn...
+</span></span></code></pre></div><p>When running the bitfusion notebook, we can monitor the GPU usage in the vCenter Server console, shown as the demo.</p>
+<p><img src="../4_bitfusion_console.png" alt="4"></p>
+<h2 id="roadmap">Roadmap</h2>
+<p>In the above use case, you may find that we can only run python scripts with a bitfusion wrapper. But we will build a “Bitfusion Kernel” in the near feature, shown as the screen, to let users to run every python code blocks into bitfusion environment</p>
+<p><img src="../3_bitfusion_kernel_roadmap.png" alt="3"></p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 2, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/ea33ff7e3eaa88a7b3afec9d81b5e40846d0e212">add Kubeflow on vSphere website (ea33ff7)</a>
+  Last modified November 11, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/d6f3107fe33ada0bef5c0230f086f080a918e737">website: change doc title (d6f3107)</a>
 </div>
 
 </div>
+
 
           </main>
         </div>
@@ -395,6 +441,9 @@
 <script src="/ml-ops-platform-for-vsphere/js/main.min.996daafaf2da35aed251c4a4417605fd236f955837f403643c6117bf904daa5f.js" integrity="sha256-mW2q&#43;vLaNa7SUcSkQXYF/SNvlVg39ANkPGEXv5BNql8=" crossorigin="anonymous"></script>
 
 
+
+
+<script src="/ml-ops-platform-for-vsphere/js/copy-code-button.min.js"></script>
 
 
 

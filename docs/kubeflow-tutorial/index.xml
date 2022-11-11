@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kubeflow on vSphere – Tutorials</title>
+    <title>Kubeflow on vSphere – Basic Guides</title>
     <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/</link>
-    <description>Recent content in Tutorials on Kubeflow on vSphere</description>
+    <description>Recent content in Basic Guides on Kubeflow on vSphere</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +14,7 @@
     
     
     <item>
-      <title>Docs: Lab1 Getting Started</title>
+      <title>Docs: Users and Login</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -145,13 +145,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s&#34;&gt;EOF&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h2&gt;
 &lt;hr&gt;
-&lt;p&gt;Now you are ready to move to the next labs &lt;a href=&#34;../lab2&#34;&gt;Lab2 Notebook&lt;/a&gt; about Data cleaning, EDA, feature engineering, model training, evaluations&lt;/p&gt;
+&lt;p&gt;Now you are ready to move to the next tutorial &lt;a href=&#34;../lab2&#34;&gt;Notebook&lt;/a&gt; about Data cleaning, EDA, feature engineering, model training, evaluations&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Lab2 Notebooks</title>
+      <title>Docs: Notebooks</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -177,13 +177,13 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;/div&gt;
 &lt;h1 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h1&gt;
 &lt;hr&gt;
-&lt;p&gt;Now move forward to &lt;a href=&#34;../lab3&#34;&gt;Lab3 Training Operators&lt;/a&gt; about PyTorch distributed training with GPU&lt;/p&gt;
+&lt;p&gt;Now move forward to &lt;a href=&#34;../lab3&#34;&gt;Training Operators&lt;/a&gt; about PyTorch distributed training with GPU&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Lab3 PyTorch Training (PyTorchJob)</title>
+      <title>Docs: PyTorch Training (PyTorchJob)</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -208,13 +208,13 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h1 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h1&gt;
-&lt;p&gt;Now you are ready to move to the next labs &lt;a href=&#34;../lab4&#34;&gt;Lab4 Serving&lt;/a&gt; about model serving&lt;/p&gt;
+&lt;p&gt;Now you are ready to move to the next tutorial &lt;a href=&#34;../lab4&#34;&gt;Serving&lt;/a&gt; about model serving&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Lab4 Model Serving</title>
+      <title>Docs: Model Serving</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab4/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -239,13 +239,13 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;/iframe&gt;
 &lt;/div&gt;
 &lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s next&lt;/h2&gt;
-&lt;p&gt;Now move forward to &lt;a href=&#34;../lab5_pipeline_complete/lab5&#34;&gt;Lab5 Pipeline&lt;/a&gt; about Kubeflow pipeline&lt;/p&gt;
+&lt;p&gt;Now move forward to &lt;a href=&#34;../lab5_pipeline_complete/lab5&#34;&gt;Pipeline&lt;/a&gt; about Kubeflow pipeline&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
-      <title>Docs: Lab5 Pipeline</title>
+      <title>Docs: Pipeline</title>
       <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/lab5/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

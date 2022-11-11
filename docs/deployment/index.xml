@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kubeflow on vSphere – Deployment</title>
+    <title>Kubeflow on vSphere – Getting Started</title>
     <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/</link>
-    <description>Recent content in Deployment on Kubeflow on vSphere</description>
+    <description>Recent content in Getting Started on Kubeflow on vSphere</description>
     <generator>Hugo -- gohugo.io</generator>
     
 	  <atom:link href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/index.xml" rel="self" type="application/rss+xml" />
@@ -445,7 +445,7 @@
 &lt;p&gt;After proxy is configured properly, you may need to uninstall and install Kubeflow again.&lt;/p&gt;
 &lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h2&gt;
 &lt;hr&gt;
-&lt;p&gt;We have prepared an end-to-end tutorial for you to get started quickly. Check it out &lt;a href=&#34;../../kubeflow-tutorial/&#34;&gt;Kubeflow Tutorial&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We have prepared &lt;a href=&#34;../../kubeflow-tutorial&#34;&gt;a basic guide to Kubeflow on vSphere componentes&lt;/a&gt; for you to get started quickly.&lt;/p&gt;
 
       </description>
     </item>
