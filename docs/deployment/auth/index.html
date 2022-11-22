@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.93.0" />
+<meta name="robots" content="index, follow">
+
+<script type="application/ld+json">
+  {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "mainEntityOfPage": {
+           "@type": "WebPage",
+           "@id": "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/"
+      },
+      "articleSection" : "docs",
+      "name" : "Setup Authentication",
+      "headline" : "Setup Authentication",
+      "description" : "Setup Authentication for Kubeflow on vSphere",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "0001",
+      "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
+      "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
+      "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/deployment\/auth\/",
+      "wordCount" : "1403",
+      "keywords" : [ "Kubeflow" ]
+  }
+  </script>
+
+<link rel="shortcut icon" href="/ml-ops-platform-for-vsphere/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/ml-ops-platform-for-vsphere/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/ml-ops-platform-for-vsphere/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/ml-ops-platform-for-vsphere/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="manifest" href="/ml-ops-platform-for-vsphere/favicons/manifest.json">
+<meta name="msapplication-config" content="/ml-ops-platform-for-vsphere/favicons/browserconfig.xml" />
+<meta name="msapplication-TileColor" content="#4279f4">
+<meta name="theme-color" content="#4279f4">
+
+<title>Setup Authentication | Kubeflow on vSphere</title>
+<meta name="description" content="Setup Authentication for Kubeflow on vSphere">
+<meta property="og:title" content="Setup Authentication" />
+<meta property="og:description" content="Setup Authentication for Kubeflow on vSphere" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/auth/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2022-11-11T12:43:20+00:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+
+<meta itemprop="name" content="Setup Authentication">
+<meta itemprop="description" content="Setup Authentication for Kubeflow on vSphere">
+<meta itemprop="dateModified" content="2022-11-11T12:43:20+00:00" />
+<meta itemprop="wordCount" content="1403">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Setup Authentication"/>
+<meta name="twitter:description" content="Setup Authentication for Kubeflow on vSphere"/>
+
+
+
+
+<link rel="preload" href="/ml-ops-platform-for-vsphere/scss/main.min.f7f5d3dc32ab8c2e268273bf8b0b13f104d3f9c074f0db91439d498144bcf28a.css" as="style">
+<link href="/ml-ops-platform-for-vsphere/scss/main.min.f7f5d3dc32ab8c2e268273bf8b0b13f104d3f9c074f0db91439d498144bcf28a.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+
+    
+    <link href="/ml-ops-platform-for-vsphere/css/syntax.min.css" rel="stylesheet">
+
+    
+    <link href="/ml-ops-platform-for-vsphere/css/copy-code-button.min.css" rel="stylesheet">
+
+
+  </head>
+  <body class="td-page">
+    <header>
+      
+<nav class="js-navbar-scroll navbar navbar-expand-md navbar-dark  td-navbar">
+        <a class="navbar-brand" href="/ml-ops-platform-for-vsphere/">
+		<span class="navbar-logo"></span><span class="text-uppercase font-weight-bold">Kubeflow on vSphere</span>
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse ml-md-auto" id="main_navbar">
+		<ul class="navbar-nav ml-auto pt-4 pt-md-0 my-2 my-md-1">
+			
+			
+			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="/ml-ops-platform-for-vsphere/docs/" ><i class='fas fa-book pr-2'></i><span>Documentation</span></a>
+			</li>
+			
+			<li class="nav-item mr-2 mr-lg-4 mt-1 mt-lg-0">
+				
+				
+				
+				
+				
+				
+				<a class="nav-link" href="https://github.com/vmware/ml-ops-platform-for-vsphere" target="_blank" ><i class='fab fa-github pr-2'></i><span>GitHub</span></a>
+			</li>
+			
+			
+			<li class="nav-item dropdown mt-1 mt-lg-0 mr-2">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Releases
+</a>
+<div class="dropdown-menu dropdown-menu-md-right dropdown-menu-lg-left" aria-labelledby="navbarDropdownMenuLink">
+	
+	<a class="dropdown-item" href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs">v1.6</a>
+	
+	<a class="dropdown-item" href="https://core.vmware.com/aiml-solutions">v1.5</a>
+	
+</div>
+
+			</li>
+			
+			
+		</ul>
+	</div>
+</nav>
+
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            
+<div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ml-3 fas fa-bars" type="button" data-toggle="collapse" data-target="#td-section-nav" aria-controls="td-docs-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav foldable-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pr-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocs-li">
+  <a href="/ml-ops-platform-for-vsphere/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ml-ops-platform-for-vspheredocs"><span class="">Documentation</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsintroduction-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsintroduction-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsintroduction-check"><a href="/ml-ops-platform-for-vsphere/docs/introduction/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsintroduction"><span class="">Introduction</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocsdeployment-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeployment-check" checked/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeployment-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeployment"><span class="">Getting Started</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites"><span class="">Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/namespace/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace"><span class="">Create and configure a vSphere Namespace</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/cluster/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster"><span class="">Create a Tanzu Kubernetes Cluster</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/carvel/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel"><span class="">Deploy Kubeflow</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocsdeploymentauth-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentauth-check" checked/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentauth-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/auth/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentauth"><span class="td-sidebar-nav-active-item">Setup Authentication</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting"><span class="">Trouble Shooting</span></a></label>
+  
+  <ul class="ul-3 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/proxy/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingproxy"><span class="">Configure a proxy</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/app-platform/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshootingapp-platform"><span class="">Install Kapp-controller</span></a></label>
+  
+</li>
+  </ul>
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutorial-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocskubeflow-tutorial"><span class="">Basic Guides</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab1"><span class="">Users and Login</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab2/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab2"><span class="">Notebooks</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab3/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab3"><span class="">PyTorch Training (PyTorchJob)</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab4/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab4"><span class="">Model Serving</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5-check"><a href="/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab5_pipeline_complete/lab5/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocskubeflow-tutoriallab5_pipeline_completelab5"><span class="">Pipeline</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsvmware-product-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-product-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsvmware-product-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsvmware-product"><span class="">Advanced Features</span></a></label>
+  
+  <ul class="ul-2 foldable">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion-check"><a href="/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsvmware-productbitfusion"><span class="">Bitfusion</span></a></label>
+  
+</li>
+  </ul>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsabout-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsabout-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsabout-check"><a href="/ml-ops-platform-for-vsphere/docs/about/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsabout"><span class="">About</span></a></label>
+  
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/deployment/auth.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/deployment/auth.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/deployment/auth.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=Setup%20Authentication" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
+  
+</div>
+
+            
+
+
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#option-1-use-external-dex">Option 1: Use external Dex</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#option-2-use-embedded-dex-with-upstream-oidc">Option 2: Use Embedded Dex with upstream OIDC</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#option-3-use-embedded-dex-with-upstream-oidc-static-passwords-ldap--ad">Option 3: Use Embedded Dex with upstream OIDC, static passwords, LDAP / AD</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+
+
+
+            
+
+	
+		
+
+
+
+  
+  
+
+	
+		
+
+
+
+  
+  
+
+	
+
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 pl-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/">Documentation</a>
+  </li>
+  <li class="breadcrumb-item">
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/">Getting Started</a>
+  </li>
+  <li class="breadcrumb-item active" aria-current="page">
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/auth/">Setup Authentication</a>
+  </li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Setup Authentication</h1>
+	<div class="lead">Setup Authentication for Kubeflow on vSphere</div>
+	<header class="article-meta">
+		
+
+  
+    
+
+
+  
+    
+
+
+  
+
+		
+	</header>    
+	<h2 id="introduction">Introduction</h2>
+<hr>
+<p>In this tutorial, we will learn how to configure <strong>Kubeflow on vSphere</strong> for multi-user collaboration with the <strong>same identity provider used by TKG clusters</strong>.</p>
+<p><img src="../assets/kubeflow_auth.png" alt=""></p>
+<p>With the release of vSphere 8.0 and its <strong>Pinniped authentication service</strong> on TKG, you can now configure Supervisor with <strong>any OIDC-compliant identity provider</strong> such as <a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-tkg/GUID-766CC14B-BE5D-427E-8EA5-1570F28C95DE.html#GUID-766CC14B-BE5D-427E-8EA5-1570F28C95DE__section_ovd_qn5_x5b">Okta</a>, <a href="https://pinniped.dev/docs/howto/configure-supervisor-with-workspace_one_access/">Workspace One</a>, <a href="https://pinniped.dev/docs/howto/configure-supervisor-with-dex/">Dex</a>, <a href="https://pinniped.dev/docs/howto/configure-supervisor-with-gitlab/">GitLab</a>, <a href="https://developers.google.com/identity/protocols/oauth2/openid-connect">Google OAuth</a>, etc. following the document: <a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-tkg/GUID-766CC14B-BE5D-427E-8EA5-1570F28C95DE.html">Configure an External IDP for Use with TKG 2 on Supervisor</a></p>
+<p>Kubeflow use <a href="https://github.com/arrikto/oidc-authservice">OIDC-AuthService</a> to provide authentication service. By connecting OIDC-AuthService to the same identity provider used by Pinniped service, you will be able to access Kubeflow and TKG cluster with the same user account.</p>
+<p>Depending on your goal, you may choose one of the following three options:</p>
+<ol>
+<li>Configure OIDC-AuthService with the external Dex.</li>
+</ol>
+<blockquote>
+<p><code>Option 1 is preferred if Pinniped service on TKG cluster has been configured with Dex as IdP. </code></p>
+</blockquote>
+<ol start="2">
+<li>Configure OIDC-AuthService with Embedded Dex, and further use upstream OIDC as IdP.</li>
+</ol>
+<blockquote>
+<p><code>Option 2 is preferred if Pinniped service on TKG cluster has been configured with OIDC services as IdP. </code></p>
+</blockquote>
+<ol start="3">
+<li>Configure OIDC-AuthService with Embedded Dex, and further use static passwords, LDAP / AD or OIDC.</li>
+</ol>
+<blockquote>
+<p><code>Option 3 is preferred if you would like to use a standalone authentication system for Kubeflow</code></p>
+</blockquote>
+<h2 id="option-1-use-external-dex">Option 1: Use external Dex</h2>
+<hr>
+<h4 id="prerequisites-and-procedures">Prerequisites and procedures</h4>
+<ul>
+<li>[<strong>Prerequisites</strong>] A Tanzu Kubernetes Cluster with Kubeflow on vSphere deployed. If you haven&rsquo;t, please follow the tutorial <a href="http://localhost:1313/ml-ops-platform-for-vsphere/main/docs/deployment/carvel/">here</a>.</li>
+<li>[<strong>Prerequisites</strong>] Pinniped service on TKG being configured with an external Dex. You can follow the documents <a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-tkg/GUID-766CC14B-BE5D-427E-8EA5-1570F28C95DE.html">here</a> for instructions.</li>
+<li>Add a staticClients to external Dex for Kubeflow OIDC-Authservice.</li>
+<li>Connect Kubeflow OIDC_Authservice with external Dex.</li>
+</ul>
+<h4 id="add-staticclient-to-external-dex">Add staticClient to external Dex</h4>
+<p>Dex use a configmap for its configuration. You can get original Dex configuration file by</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Dex is installed in the namespace dex by default</span>
+</span></span><span class="line"><span class="cl">$ kubectl get configmap dex -n dex
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: ConfigMap
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  name: dex
+</span></span><span class="line"><span class="cl">  namespace: dex
+</span></span><span class="line"><span class="cl">data:
+</span></span><span class="line"><span class="cl">  config.yaml: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">    issuer: https://dex.dex.svc.cluster.local
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># --     some configurations we don&#39;t care    -- #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># --     some configurations we don&#39;t care    -- #</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    staticClients:
+</span></span><span class="line"><span class="cl">    <span class="c1"># --        staticClients configuration begin        -- #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># It defines the downstream clients that use Dex as IdP #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># --        staticClients configuration end          -- #</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Assume Dex is also configured with Pinniped Supervisor,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># so there should be one static client existing.</span>
+</span></span><span class="line"><span class="cl">    - id: pinniped-supervisor
+</span></span><span class="line"><span class="cl">      redirectURIs: <span class="o">[</span><span class="s2">&#34;https://10.105.150.34/wcp/pinniped/callback &#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">      name: <span class="s1">&#39;Pinniped Supervisor client&#39;</span>
+</span></span><span class="line"><span class="cl">      secret: pinniped-supervisor-secret
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    connectors:
+</span></span><span class="line"><span class="cl">    <span class="c1"># --      connectors configuration begin        -- #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#        It defines the upstream IdP of Dex        #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># --      connectors configuration end          -- #</span>
+</span></span></code></pre></div><p>Edit the configmap to add a staticClient for our Kubeflow OIDC-AuthService. For the new static client, you will need to defines:</p>
+<ul>
+<li><strong>id</strong>: you define any id here, which will be used later</li>
+<li><strong>secret</strong>: you define any secret here, it will be used later</li>
+<li><strong>redirectURIs</strong>: the IP address or domain name of the Kubeflow istio-ingressgateway + &ldquo;/login/oidc&rdquo;, it will be used later</li>
+<li><strong>name</strong>: does not matter</li>
+</ul>
+<p>You also need to note down:</p>
+<ul>
+<li><strong>issuer</strong>: note down this value, we will need it later.</li>
+</ul>
+<p>If you don&rsquo;t know how to get the IP address of the Kubeflow istio-ingressgateway, please consult <a href="../../kubeflow-tutorial/lab1/">docs here</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Dex is installed in the namespace dex by default</span>
+</span></span><span class="line"><span class="cl">$ kubectl edit configmap dex -n dex
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kind: ConfigMap
+</span></span><span class="line"><span class="cl">apiVersion: v1
+</span></span><span class="line"><span class="cl">metadata:
+</span></span><span class="line"><span class="cl">  name: dex
+</span></span><span class="line"><span class="cl">  namespace: dex
+</span></span><span class="line"><span class="cl">data:
+</span></span><span class="line"><span class="cl">  config.yaml: <span class="p">|</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># issuer: note down this value, we will need it later.</span>
+</span></span><span class="line"><span class="cl">    issuer: https://dex.dex.svc.cluster.local
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># --     some configurations we don&#39;t care    -- #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># --     some configurations we don&#39;t care    -- #</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    staticClients:
+</span></span><span class="line"><span class="cl">    <span class="c1"># --        staticClients configuration begin        -- #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># It defines the downstream clients that use Dex as IdP #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># --        staticClients configuration end          -- #</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Assume Dex is also configured with Pinniped Supervisor,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># so there should be one static client existing.</span>
+</span></span><span class="line"><span class="cl">    - id: pinniped-supervisor
+</span></span><span class="line"><span class="cl">      secret: pinniped-supervisor-secret
+</span></span><span class="line"><span class="cl">      redirectURIs: <span class="o">[</span><span class="s2">&#34;https://10.105.150.34/wcp/pinniped/callback &#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">      name: <span class="s1">&#39;Pinniped Supervisor client&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># Add one more static client for Kubeflow OIDC authservice</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># id: you define any id here, which will be used later</span>
+</span></span><span class="line"><span class="cl">    - id: kubeflow-oidc-authservice
+</span></span><span class="line"><span class="cl">      <span class="c1"># secret: you define any secret here, it will be used later</span>
+</span></span><span class="line"><span class="cl">      secret: kubeflow-oidc-authservice-secret
+</span></span><span class="line"><span class="cl">      <span class="c1"># redirectURIs: the IP address or domain name of the Kubeflow istio-ingressgateway + &#34;/login/oidc&#34;, it will be used later</span>
+</span></span><span class="line"><span class="cl">      redirectURIs: <span class="o">[</span><span class="s2">&#34;http://istio-ingressgateway.istio-system.svc.cluster.local/login/oidc&#34;</span><span class="o">]</span>
+</span></span><span class="line"><span class="cl">      <span class="c1"># name: does not matter</span>
+</span></span><span class="line"><span class="cl">      name: <span class="s1">&#39;kubeflow-oidc-authservice&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    connectors:
+</span></span><span class="line"><span class="cl">    <span class="c1"># --      connectors configuration begin        -- #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#        It defines the upstream IdP of Dex        #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># --      connectors configuration end          -- #</span>
+</span></span></code></pre></div><h4 id="connect-kubeflow-oidc_authservice-with-external-dex">Connect Kubeflow OIDC_Authservice with external Dex.</h4>
+<p>In the previous section, four values <strong>id</strong>, <strong>secret</strong>, <strong>redirectURIs</strong>, <strong>issuer</strong> are said to be used later.</p>
+<p>Now update values.yaml according to the four values.</p>
+<p>You will need to set:</p>
+<ul>
+<li>OIDC_Authservice.<strong>OIDC_AUTH_URL</strong>: <code>issuer</code> + &lsquo;/auth&rsquo;</li>
+<li>OIDC_Authservice.<strong>OIDC_PROVIDER</strong>: <code>issuer</code></li>
+<li>OIDC_Authservice.<strong>REDIRECT_URL</strong>: <code>redirectURIs</code></li>
+<li>OIDC_Authservice.<strong>OIDC_CLIENT_ID</strong>: <code>id</code></li>
+<li>OIDC_Authservice.<strong>OIDC_CLIENT_SECRET</strong>: <code>secret</code></li>
+</ul>
+<p>Because we do not need the embedded Dex anymore, we will also set</p>
+<ul>
+<li>Dex.<strong>use_external</strong>: True</li>
+</ul>
+<p>You can keep other values unchanged.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># keep them unchanged #</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">OIDC_Authservice:
+</span></span><span class="line"><span class="cl">  <span class="c1"># OIDC_Authservice.OIDC_AUTH_URL: `issuer` + &#39;/auth&#39;</span>
+</span></span><span class="line"><span class="cl">  OIDC_AUTH_URL: https://dex.dex.svc.cluster.local/auth
+</span></span><span class="line"><span class="cl">  <span class="c1"># OIDC_Authservice.OIDC_PROVIDER: `issuer`</span>
+</span></span><span class="line"><span class="cl">  OIDC_PROVIDER: https://dex.dex.svc.cluster.local
+</span></span><span class="line"><span class="cl">  OIDC_SCOPES: <span class="s2">&#34;profile email groups&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># REDIRECT_URL: `redirectURIs`</span>
+</span></span><span class="line"><span class="cl">  REDIRECT_URL: http://istio-ingressgateway.istio-system.svc.cluster.local/login/oidc
+</span></span><span class="line"><span class="cl">  SKIP_AUTH_URI: <span class="s2">&#34;/dex&#34;</span>
+</span></span><span class="line"><span class="cl">  USERID_CLAIM: email
+</span></span><span class="line"><span class="cl">  USERID_HEADER: kubeflow-userid
+</span></span><span class="line"><span class="cl">  USERID_PREFIX: <span class="s2">&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># OIDC_CLIENT_ID: `id`</span>
+</span></span><span class="line"><span class="cl">  OIDC_CLIENT_ID: kubeflow-oidc-authservice
+</span></span><span class="line"><span class="cl">  <span class="c1"># OIDC_CLIENT_SECRET: `secret`</span>
+</span></span><span class="line"><span class="cl">  OIDC_CLIENT_SECRET: kubeflow-oidc-authservice-secret
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">Dex:
+</span></span><span class="line"><span class="cl">  use_external: True
+</span></span></code></pre></div><p>Update to an updated values file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kctrl package installed update --package-install kubeflow --values-file values.yaml
+</span></span></code></pre></div><p>Restart the OIDC-AuthService by</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl delete pod authservice-0 -n istio-system
+</span></span></code></pre></div><h2 id="option-2-use-embedded-dex-with-upstream-oidc">Option 2: Use Embedded Dex with upstream OIDC</h2>
+<hr>
+<h4 id="prerequisites-and-procedures-1">Prerequisites and procedures</h4>
+<ul>
+<li>[<strong>Prerequisites</strong>] A Tanzu Kubernetes Cluster with Kubeflow on vSphere deployed. If you haven&rsquo;t, please follow the tutorial <a href="http://localhost:1313/ml-ops-platform-for-vsphere/main/docs/deployment/carvel/">here</a>.</li>
+<li>[<strong>Prerequisites</strong>] Pinniped service on TKG being configured with an upstream OIDC. You can follow the documents <a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-tkg/GUID-766CC14B-BE5D-427E-8EA5-1570F28C95DE.html">here</a> for instructions.</li>
+<li>Add a new OIDC client to the upstream OIDC provier.</li>
+<li>Connect Kubeflow embedded Dex with the upstream OIDC.</li>
+</ul>
+<h4 id="add-a-new-oidc-client-to-the-upstream-oidc-provier">Add a new OIDC client to the upstream OIDC provier.</h4>
+<p>We will use the same <strong>Okta</strong> example aligning with VMware official documents.</p>
+<p>Please follow <a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-tkg/GUID-766CC14B-BE5D-427E-8EA5-1570F28C95DE.html">https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-tkg/GUID-766CC14B-BE5D-427E-8EA5-1570F28C95DE.html</a> to create a new App Integration, with the following settings:</p>
+<ul>
+<li><strong>redirect URIs</strong>: the IP address or domain name of the Kubeflow istio-ingressgateway + &ldquo;/login/oidc&rdquo;, it will be used later</li>
+</ul>
+<p>You also need to note down those values, which will be used later.</p>
+<ul>
+<li><strong>Issuer URL</strong>: e.g. <a href="https://trial-7937584.okta.com">https://trial-7937584.okta.com</a></li>
+<li><strong>Client ID</strong>: e.g. 0oa2qxti4tNuljEHu697</li>
+<li><strong>Client Secret</strong>: e.g. 7ERAlNa2RZsmGACE_tkUEhKzpZ2ir-65gjjU-wxI</li>
+</ul>
+<p>If you don&rsquo;t know how to get the IP address of the Kubeflow istio-ingressgateway, please consult <a href="../../kubeflow-tutorial/lab1/">docs here</a></p>
+<h4 id="connect-kubeflow-embedded-dex-with-the-upstream-oidc">Connect Kubeflow embedded Dex with the upstream OIDC.</h4>
+<p>In the previous section, four values <strong>redirect URIs</strong>, <strong>Issuer URL</strong>, <strong>Client ID</strong>, <strong>Client Secret</strong> are said to be used later.</p>
+<p>Now set Dex.<strong>config</strong> in values.yaml according to the four values.</p>
+<p>You can keep other values unchanged.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># keep them unchanged #</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Dex:
+</span></span><span class="line"><span class="cl">  use_external: False
+</span></span><span class="line"><span class="cl">  config: <span class="p">|</span>-
+</span></span><span class="line"><span class="cl">    <span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># keep them unchanged #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># add a new connector</span>
+</span></span><span class="line"><span class="cl">    connectors:
+</span></span><span class="line"><span class="cl">    - type: oidc
+</span></span><span class="line"><span class="cl">      id: okta
+</span></span><span class="line"><span class="cl">      name: Okta
+</span></span><span class="line"><span class="cl">      config:
+</span></span><span class="line"><span class="cl">        <span class="c1"># Issuer URL</span>
+</span></span><span class="line"><span class="cl">        issuer: https://trial-7937584.okta.com
+</span></span><span class="line"><span class="cl">        <span class="c1"># Client ID</span>
+</span></span><span class="line"><span class="cl">        clientID: 0oa2qxti4tNuljEHu697
+</span></span><span class="line"><span class="cl">        <span class="c1"># Client Secret</span>
+</span></span><span class="line"><span class="cl">        clientSecret: 7ERAlNa2RZsmGACE_tkUEhKzpZ2ir-65gjjU-wxI
+</span></span><span class="line"><span class="cl">        <span class="c1"># redirect URIs</span>
+</span></span><span class="line"><span class="cl">        redirectURI: http://istio-ingressgateway.istio-system.svc.cluster.local/dex/callback
+</span></span><span class="line"><span class="cl">        <span class="c1"># for Dex with Okta to work, you will also need to set insecureSkipEmailVerified to be true</span>
+</span></span><span class="line"><span class="cl">        insecureSkipEmailVerified: <span class="nb">true</span>
+</span></span></code></pre></div><p>Update to an updated values file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kctrl package installed update --package-install kubeflow --values-file values.yaml
+</span></span></code></pre></div><p>Restart the Dex by</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl rollout restart deployment dex -n auth
+</span></span></code></pre></div><h2 id="option-3-use-embedded-dex-with-upstream-oidc-static-passwords-ldap--ad">Option 3: Use Embedded Dex with upstream OIDC, static passwords, LDAP / AD</h2>
+<hr>
+<p>You can also configure embedded Dex with all kinds of identity providers following Dex official docs: <a href="https://dexidp.io/docs/connectors/">https://dexidp.io/docs/connectors/</a></p>
+<p>We will introduce the simplest one: static passwords, which is very convenient for testing purpose.</p>
+<h4 id="static-user-creation">Static User Creation</h4>
+<p>Dex allows use to create a static user, and store the username / password in Kubernetes <code>configmap</code> object.</p>
+<ol>
+<li>
+<p>Create a python file that create the hash of your password</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install passlib
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cat &gt; password_hash.py <span class="s">&lt;&lt; EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">import argparse
+</span></span></span><span class="line"><span class="cl"><span class="s">from passlib.hash import bcrypt
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">parser = argparse.ArgumentParser()
+</span></span></span><span class="line"><span class="cl"><span class="s">parser.add_argument(&#39;--password&#39;, type=str, metavar=&#39;P&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s">args = parser.parse_args()
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">print(bcrypt.using(rounds=12, ident=&#34;2y&#34;).hash(args.password))
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Add new users to values.yaml files.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># keep them unchanged #</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Dex:
+</span></span><span class="line"><span class="cl">  use_external: False
+</span></span><span class="line"><span class="cl">  config: <span class="p">|</span>-
+</span></span><span class="line"><span class="cl">    <span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># keep them unchanged #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">    EnablePasswordDB: <span class="nb">true</span>
+</span></span><span class="line"><span class="cl">    static_users: 
+</span></span><span class="line"><span class="cl">    - email: <span class="s2">&#34;user@example.com&#34;</span>
+</span></span><span class="line"><span class="cl">      hash: <span class="k">$(</span>python3 password_hash.py --password 12341234<span class="k">)</span>
+</span></span><span class="line"><span class="cl">      username: user
+</span></span><span class="line"><span class="cl">      userID: <span class="k">$(</span>cat /proc/sys/kernel/random/uuid<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    - email: <span class="s2">&#34;admin@vsphere.local&#34;</span>
+</span></span><span class="line"><span class="cl">      hash: <span class="k">$(</span>python3 password_hash.py --password 88888888<span class="k">)</span>
+</span></span><span class="line"><span class="cl">      username: admin
+</span></span><span class="line"><span class="cl">      userID: <span class="k">$(</span>cat /proc/sys/kernel/random/uuid<span class="k">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#-    Other values   -#</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># keep them unchanged #</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#-    Other values   -#</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Update to an updated values file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> kctrl package installed update --package-install kubeflow --values-file values.yaml
+</span></span></code></pre></div></li>
+<li>
+<p>Restart dex</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl rollout restart deployment dex -n auth
+</span></span></code></pre></div></li>
+</ol>
+<p>Then you will be able to login with</p>
+<ul>
+<li><a href="mailto:user@example.com">user@example.com</a> / 12341234</li>
+<li><a href="mailto:admin@vsphere.local">admin@vsphere.local</a> / 88888888</li>
+</ul>
+
+	
+	
+	<div class="text-muted mt-5 pt-3 border-top">
+  Last modified November 11, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/57fa6a399765f53e11a1a310baa8d59370a15783">Add auth setup (57fa6a3)</a>
+</div>
+
+</div>
+
+
+          </main>
+        </div>
+      </div>
+      
+<footer class="bg-dark pt-3 row d-print-none">
+  <div class="container-fluid mx-sm-5">
+    <div class="row">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+      </div>
+      <div class="col-6 col-sm-4 text-right text-xs-center order-sm-3">
+        
+      </div>
+      <div class="col text-center py-2 order-sm-2">
+        <small class="text-white">&copy; 2022 Copyright VMware, Inc.</small>
+        
+	
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"
+    integrity="sha512-UR25UO94eTnCVwjbXozyeVd6ZqpaAE9naiEUBK/A+QDbfSTQFhPGj5lOR6d8tsgbBk84Ggb5A3EkjsOgPRPcKA=="
+    crossorigin="anonymous"></script>
+
+
+
+
+
+<script src='/ml-ops-platform-for-vsphere/js/tabpane-persist.js'></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/ml-ops-platform-for-vsphere/js/main.min.996daafaf2da35aed251c4a4417605fd236f955837f403643c6117bf904daa5f.js" integrity="sha256-mW2q&#43;vLaNa7SUcSkQXYF/SNvlVg39ANkPGEXv5BNql8=" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/ml-ops-platform-for-vsphere/js/copy-code-button.min.js"></script>
+
+
+
+
+  </body>
+</html>

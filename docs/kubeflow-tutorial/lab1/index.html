@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/kubeflow-tutorial\/lab1\/",
-      "wordCount" : "462",
+      "wordCount" : "344",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/kubeflow-tutorial/lab1/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-11-11T08:55:46+00:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<meta property="article:modified_time" content="2022-11-11T12:43:20+00:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
 
 <meta itemprop="name" content="Users and Login">
 <meta itemprop="description" content="Access Kubeflow Central Dashboard, User Creation">
-<meta itemprop="dateModified" content="2022-11-11T08:55:46+00:00" />
-<meta itemprop="wordCount" content="462">
+<meta itemprop="dateModified" content="2022-11-11T12:43:20+00:00" />
+<meta itemprop="wordCount" content="344">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Users and Login"/>
 <meta name="twitter:description" content="Access Kubeflow Central Dashboard, User Creation"/>
@@ -174,6 +174,10 @@
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"/>
   <label for="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/carvel/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel"><span class="">Deploy Kubeflow</span></a></label>
   
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentauth-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentauth-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentauth-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/auth/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentauth"><span class="">Setup Authentication</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-check"/>
   <label for="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/troubleshooting/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeploymenttroubleshooting"><span class="">Trouble Shooting</span></a></label>
@@ -258,7 +262,6 @@
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
     <li><a href="#access-kubeflow-central-dashboard">Access Kubeflow Central Dashboard</a></li>
-    <li><a href="#static-user-creation">Static User Creation</a></li>
     <li><a href="#add-pod-security-policy-for-your-namespace">Add pod-security-policy for your namespace</a></li>
     <li><a href="#whats-next">What&rsquo;s Next</a></li>
   </ul>
@@ -365,56 +368,10 @@
 <p><img src="../screenshots/dex.png" alt=""></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Email: user@example.com
 </span></span><span class="line"><span class="cl">Password: <span class="m">12341234</span>
-</span></span></code></pre></div><p><img src="../screenshots/centraldashboard.png" alt=""></p>
-<h2 id="static-user-creation">Static User Creation</h2>
-<p>Dex allows use to create a static user, and store the username / password in Kubernetes <code>configmap</code> object.</p>
-<ol>
-<li>
-<p>Create a python file that create the hash of your password</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install passlib
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">cat &gt; password_hash.py <span class="s">&lt;&lt; EOF
-</span></span></span><span class="line"><span class="cl"><span class="s">import argparse
-</span></span></span><span class="line"><span class="cl"><span class="s">from passlib.hash import bcrypt
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">parser = argparse.ArgumentParser()
-</span></span></span><span class="line"><span class="cl"><span class="s">parser.add_argument(&#39;--password&#39;, type=str, metavar=&#39;P&#39;)
-</span></span></span><span class="line"><span class="cl"><span class="s">args = parser.parse_args()
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">print(bcrypt.using(rounds=12, ident=&#34;2y&#34;).hash(args.password))
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Add new users to values.yaml files.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat &gt; values.yaml <span class="s">&lt;&lt; EOF
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">imageswap_labels: True
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">service_type: &#34;LoadBalancer&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">IP_address: &#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">CD_REGISTRATION_FLOW: True
-</span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">static_users: 
-</span></span></span><span class="line"><span class="cl"><span class="s">- email: &#34;user@example.com&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">  hash: $(python3 password_hash.py --password 12341234)
-</span></span></span><span class="line"><span class="cl"><span class="s">- email: &#34;admin@vsphere.local&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">  hash: $(python3 password_hash.py --password 88888888)
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Update to an updated values file</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> kctrl package installed update --package-install kubeflow --values-file values.yaml
-</span></span></code></pre></div></li>
-<li>
-<p>Restart dex</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl rollout restart deployment dex -n auth
-</span></span></code></pre></div></li>
-</ol>
-<p>Follow the Registration Flow, create your Kubeflow profile.</p>
+</span></span></code></pre></div><p>Follow the Registration Flow, create your Kubeflow profile.</p>
 <p><img src="../screenshots/CD_REGISTRATION_FLOW_1.png" alt=""></p>
 <p><img src="../screenshots/CD_REGISTRATION_FLOW_2.png" alt=""></p>
+<p><img src="../screenshots/centraldashboard.png" alt=""></p>
 <p>You will see a profile and namespace being created</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl get profile,namespace admin
 </span></span><span class="line"><span class="cl">
@@ -451,7 +408,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 11, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/d6f3107fe33ada0bef5c0230f086f080a918e737">website: change doc title (d6f3107)</a>
+  Last modified November 11, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/57fa6a399765f53e11a1a310baa8d59370a15783">Add auth setup (57fa6a3)</a>
 </div>
 
 </div>
