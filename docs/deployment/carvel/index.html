@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/deployment\/carvel\/",
-      "wordCount" : "534",
+      "wordCount" : "957",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/carvel/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-11-11T08:55:46+00:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<meta property="article:modified_time" content="2022-11-22T11:00:35+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
 
 <meta itemprop="name" content="Deploy Kubeflow">
 <meta itemprop="description" content="Deploy Kubeflow 1.6 with Carvel Package and App Platform">
-<meta itemprop="dateModified" content="2022-11-11T08:55:46+00:00" />
-<meta itemprop="wordCount" content="534">
+<meta itemprop="dateModified" content="2022-11-22T11:00:35+08:00" />
+<meta itemprop="wordCount" content="957">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Deploy Kubeflow"/>
 <meta name="twitter:description" content="Deploy Kubeflow 1.6 with Carvel Package and App Platform"/>
@@ -374,7 +374,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">kctrl package repository add <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --repository kubeflow-carvel-repo <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --url projects.registry.vmware.com/kubeflow/kubeflow-carvel-repo:0.1
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --url projects.registry.vmware.com/kubeflow/kubeflow-carvel-repo:0.11
 </span></span></code></pre></div><h2 id="install-kubeflow">Install Kubeflow</h2>
 <hr>
 <p>Run the command to print values schema of the Kubeflow package.</p>
@@ -384,12 +384,49 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Values schema <span class="k">for</span> <span class="s1">&#39;kubeflow.community.tanzu.vmware.com/1.6.0&#39;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Key                   Default       Type     Description  
-</span></span><span class="line"><span class="cl">CD_REGISTRATION_FLOW  <span class="nb">true</span>          boolean  Turn on Registration Flow, so that Kubeflow Central Dashboard will prompt new users to create a namespace <span class="o">(</span>profile<span class="o">)</span>  
-</span></span><span class="line"><span class="cl">IP_address            <span class="s2">&#34;&#34;</span>            string   EXTERNAL_IP address of istio-ingressgateway, valid only <span class="k">if</span> service_type is LoadBalancer  
-</span></span><span class="line"><span class="cl">imageswap_labels      <span class="nb">true</span>          boolean  Add labels k8s.twr.io/imageswap: enabled to Kubeflow namespaces, which <span class="nb">enable</span> imageswap webhook to swap images.  
-</span></span><span class="line"><span class="cl">service_type          LoadBalancer  string   Service <span class="nb">type</span> of istio-ingressgateway. Available options: <span class="s2">&#34;LoadBalancer&#34;</span> or <span class="s2">&#34;NodePort&#34;</span>  
-</span></span><span class="line"><span class="cl">static_users          -             array    Dex static user. Hash is bcrypt <span class="nb">hash</span> value of password  
+</span></span><span class="line"><span class="cl">Key                                  Default                                                                 Type     Description  
+</span></span><span class="line"><span class="cl">CD_REGISTRATION_FLOW                 <span class="nb">true</span>                                                                    boolean  Turn on Registration Flow, so that Kubeflow Central Dashboard will prompt new users to create a namespace <span class="o">(</span>profile<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">Dex.config                           <span class="p">|</span>-                                                                      string   Configuration file of Dex  
+</span></span><span class="line"><span class="cl">                                       issuer: http://dex.auth.svc.cluster.local:5556/dex                               
+</span></span><span class="line"><span class="cl">                                       storage:                                                                         
+</span></span><span class="line"><span class="cl">                                         type: kubernetes                                                               
+</span></span><span class="line"><span class="cl">                                         config:                                                                        
+</span></span><span class="line"><span class="cl">                                           inCluster: <span class="nb">true</span>                                                              
+</span></span><span class="line"><span class="cl">                                       web:                                                                             
+</span></span><span class="line"><span class="cl">                                         http: 0.0.0.0:5556                                                             
+</span></span><span class="line"><span class="cl">                                       logger:                                                                          
+</span></span><span class="line"><span class="cl">                                         level: <span class="s2">&#34;debug&#34;</span>                                                                 
+</span></span><span class="line"><span class="cl">                                         format: text                                                                   
+</span></span><span class="line"><span class="cl">                                       oauth2:                                                                          
+</span></span><span class="line"><span class="cl">                                         skipApprovalScreen: <span class="nb">true</span>                                                       
+</span></span><span class="line"><span class="cl">                                       enablePasswordDB: <span class="nb">true</span>                                                           
+</span></span><span class="line"><span class="cl">                                       staticPasswords:                                                                 
+</span></span><span class="line"><span class="cl">                                       - email: user@example.com                                                        
+</span></span><span class="line"><span class="cl">                                         hash: <span class="nv">$2</span>y<span class="nv">$12$4</span>K/VkmDd1q1Orb3xAt82zu8gk7Ad6ReFR4LCP9UeYE90NLiN9Df72             
+</span></span><span class="line"><span class="cl">                                         <span class="c1"># https://github.com/dexidp/dex/pull/1601/commits                              </span>
+</span></span><span class="line"><span class="cl">                                         <span class="c1"># FIXME: Use hashFromEnv instead                                               </span>
+</span></span><span class="line"><span class="cl">                                         username: user                                                                 
+</span></span><span class="line"><span class="cl">                                         userID: <span class="s2">&#34;15841185641784&#34;</span>                                                       
+</span></span><span class="line"><span class="cl">                                       staticClients:                                                                   
+</span></span><span class="line"><span class="cl">                                       <span class="c1"># https://github.com/dexidp/dex/pull/1664                                        </span>
+</span></span><span class="line"><span class="cl">                                       - idEnv: OIDC_CLIENT_ID                                                          
+</span></span><span class="line"><span class="cl">                                         redirectURIs: <span class="o">[</span><span class="s2">&#34;/login/oidc&#34;</span><span class="o">]</span>                                                  
+</span></span><span class="line"><span class="cl">                                         name: <span class="s1">&#39;Dex Login Application&#39;</span>                                                  
+</span></span><span class="line"><span class="cl">                                         secretEnv: OIDC_CLIENT_SECRET                                                  
+</span></span><span class="line"><span class="cl">Dex.use_external                     <span class="nb">false</span>                                                                   boolean  If <span class="nb">set</span> to True, the embedded Dex will not be created, and you will need to configure OIDC_Authservice with external IdP manually  
+</span></span><span class="line"><span class="cl">IP_address                           <span class="s2">&#34;&#34;</span>                                                                      string   EXTERNAL_IP address of istio-ingressgateway, valid only <span class="k">if</span> service_type is LoadBalancer  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.OIDC_AUTH_URL       /dex/auth                                                               string   AuthService will initiate an Authorization Code OIDC flow by hitting this URL. Normally discovered automatically through the OIDC Provider<span class="s1">&#39;s well-known endpoint  
+</span></span></span><span class="line"><span class="cl"><span class="s1">OIDC_Authservice.OIDC_CLIENT_ID      kubeflow-oidc-authservice                                               string   AuthService will use this Client ID when it needs to contact your OIDC provider and initiate an OIDC flow  
+</span></span></span><span class="line"><span class="cl"><span class="s1">OIDC_Authservice.OIDC_CLIENT_SECRET  pUBnBOY80SnXgjibTYM9ZWNzY2xreNGQok                                      string   AuthService will use this Client Secret to authenticate itself against your OIDC provider in combination with CLIENT_ID when attempting to access your OIDC Provider&#39;</span>s protected endpoints  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.OIDC_PROVIDER       http://dex.auth.svc.cluster.local:5556/dex                              string   URL to your OIDC provider. AuthService expects to find information about your OIDC provider at OIDC_PROVIDER/.well-known/openid-configuration, and will use this information to contact your OIDC provider and initiate an OIDC flow later on  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.OIDC_SCOPES         profile email groups                                                    string   Comma-separated list of scopes to request access to. The openid scope is always added.  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.REDIRECT_URL        /login/oidc                                                             string   AuthService will pass this URL to the OIDC provider when initiating an OIDC flow, so the OIDC provider knows where it needs to send the OIDC authorization code to. It defaults to AUTHSERVICE_URL_PREFIX/oidc/callback. This assumes that you have configured your API Gateway to pass all requests under a hostname to Authservice <span class="k">for</span> authentication  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.SKIP_AUTH_URI       /dex                                                                    string   Comma-separated list of URL path-prefixes <span class="k">for</span> which to bypass authentication. For example, <span class="k">if</span> SKIP_AUTH_URL contains /my_app/ <span class="k">then</span> requests to &lt;url&gt;/my_app/* are allowed without checking any credentials. Contains nothing by default  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.USERID_CLAIM        email                                                                   string   Claim whose value will be used as the userid <span class="o">(</span>default email<span class="o">)</span>  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.USERID_HEADER       kubeflow-userid                                                         string   Name of the header containing the user-id that will be added to the upstream request  
+</span></span><span class="line"><span class="cl">OIDC_Authservice.USERID_PREFIX       <span class="s2">&#34;&#34;</span>                                                                      string   Prefix to add to the userid, which will be the value of the USERID_HEADER  
+</span></span><span class="line"><span class="cl">imageswap_labels                     <span class="nb">true</span>                                                                    boolean  Add labels k8s.twr.io/imageswap: enabled to Kubeflow namespaces, which <span class="nb">enable</span> imageswap webhook to swap images.  
+</span></span><span class="line"><span class="cl">service_type                         LoadBalancer                                                            string   Service <span class="nb">type</span> of istio-ingressgateway. Available options: <span class="s2">&#34;LoadBalancer&#34;</span> or <span class="s2">&#34;NodePort&#34;</span>  
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">Succeeded
 </span></span></code></pre></div><p>Create a values.yaml files according to values schema.</p>
@@ -403,12 +440,53 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">
 </span></span></span><span class="line"><span class="cl"><span class="s">CD_REGISTRATION_FLOW: True
 </span></span></span><span class="line"><span class="cl"><span class="s">
-</span></span></span><span class="line"><span class="cl"><span class="s">static_users: 
-</span></span></span><span class="line"><span class="cl"><span class="s">- email: &#34;user@example.com&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s">  hash: &#34;$2y$12$4K/VkmDd1q1Orb3xAt82zu8gk7Ad6ReFR4LCP9UeYE90NLiN9Df72&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">OIDC_Authservice:
+</span></span></span><span class="line"><span class="cl"><span class="s">  OIDC_AUTH_URL: /dex/auth
+</span></span></span><span class="line"><span class="cl"><span class="s">  OIDC_PROVIDER: http://dex.auth.svc.cluster.local:5556/dex
+</span></span></span><span class="line"><span class="cl"><span class="s">  OIDC_SCOPES: &#34;profile email groups&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  REDIRECT_URL: /login/oidc
+</span></span></span><span class="line"><span class="cl"><span class="s">  SKIP_AUTH_URI: &#34;/dex&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  USERID_CLAIM: email
+</span></span></span><span class="line"><span class="cl"><span class="s">  USERID_HEADER: kubeflow-userid
+</span></span></span><span class="line"><span class="cl"><span class="s">  USERID_PREFIX: &#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  OIDC_CLIENT_ID: kubeflow-oidc-authservice
+</span></span></span><span class="line"><span class="cl"><span class="s">  OIDC_CLIENT_SECRET: pUBnBOY80SnXgjibTYM9ZWNzY2xreNGQok
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">Dex:
+</span></span></span><span class="line"><span class="cl"><span class="s">  use_external: False
+</span></span></span><span class="line"><span class="cl"><span class="s">  config: |
+</span></span></span><span class="line"><span class="cl"><span class="s">    issuer: http://dex.auth.svc.cluster.local:5556/dex
+</span></span></span><span class="line"><span class="cl"><span class="s">    storage:
+</span></span></span><span class="line"><span class="cl"><span class="s">      type: kubernetes
+</span></span></span><span class="line"><span class="cl"><span class="s">      config:
+</span></span></span><span class="line"><span class="cl"><span class="s">        inCluster: true
+</span></span></span><span class="line"><span class="cl"><span class="s">    web:
+</span></span></span><span class="line"><span class="cl"><span class="s">      http: 0.0.0.0:5556
+</span></span></span><span class="line"><span class="cl"><span class="s">    logger:
+</span></span></span><span class="line"><span class="cl"><span class="s">      level: &#34;debug&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">      format: text
+</span></span></span><span class="line"><span class="cl"><span class="s">    oauth2:
+</span></span></span><span class="line"><span class="cl"><span class="s">      skipApprovalScreen: true
+</span></span></span><span class="line"><span class="cl"><span class="s">    enablePasswordDB: true
+</span></span></span><span class="line"><span class="cl"><span class="s">    staticPasswords:
+</span></span></span><span class="line"><span class="cl"><span class="s">    - email: user@example.com
+</span></span></span><span class="line"><span class="cl"><span class="s">      hash: $2y$12$4K/VkmDd1q1Orb3xAt82zu8gk7Ad6ReFR4LCP9UeYE90NLiN9Df72
+</span></span></span><span class="line"><span class="cl"><span class="s">      # https://github.com/dexidp/dex/pull/1601/commits
+</span></span></span><span class="line"><span class="cl"><span class="s">      # FIXME: Use hashFromEnv instead
+</span></span></span><span class="line"><span class="cl"><span class="s">      username: user
+</span></span></span><span class="line"><span class="cl"><span class="s">      userID: &#34;15841185641784&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">    staticClients:
+</span></span></span><span class="line"><span class="cl"><span class="s">    # https://github.com/dexidp/dex/pull/1664
+</span></span></span><span class="line"><span class="cl"><span class="s">    - idEnv: OIDC_CLIENT_ID
+</span></span></span><span class="line"><span class="cl"><span class="s">      redirectURIs: [&#34;/login/oidc&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="s">      name: &#39;Dex Login Application&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">      secretEnv: OIDC_CLIENT_SECRET
 </span></span></span><span class="line"><span class="cl"><span class="s">
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div><p>Install Kubeflow 1.6.0 Carvel package and specify the values-file <code>values</code>.yaml by running:</p>
+</span></span></code></pre></div><blockquote>
+<p>For details on authentication configuration, please consult <a href="../auth">Guide: Setup Authentication</a></p>
+</blockquote>
+<p>Install Kubeflow 1.6.0 Carvel package and specify the values-file <code>values</code>.yaml by running:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kctrl package install <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --wait-check-interval 5s <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --wait-timeout 30m0s <span class="se">\
@@ -453,7 +531,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 11, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/d6f3107fe33ada0bef5c0230f086f080a918e737">website: change doc title (d6f3107)</a>
+  Last modified November 22, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/cc20b4e1a71f8375f4ecd3f97210dbaf80eaa1fe">website: update deployment guide for new value schema (cc20b4e)</a>
 </div>
 
 </div>
