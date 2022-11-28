@@ -15,9 +15,9 @@
            "@id": "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/"
       },
       "articleSection" : "docs",
-      "name" : "Create a Tanzu Kubernetes Cluster",
-      "headline" : "Create a Tanzu Kubernetes Cluster",
-      "description" : "Create a Tanzu Kubernetes Cluster",
+      "name" : "Kubeflow Supervisor Service",
+      "headline" : "Kubeflow Supervisor Service",
+      "description" : "Deploy Kubeflow 1.6 with Supervisor Service",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -27,8 +27,8 @@
       "copyrightYear" : "0001",
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
-      "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/deployment\/cluster\/",
-      "wordCount" : "388",
+      "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/deployment\/supervisor_service\/",
+      "wordCount" : "349",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -42,22 +42,22 @@
 <meta name="msapplication-TileColor" content="#4279f4">
 <meta name="theme-color" content="#4279f4">
 
-<title>Create a Tanzu Kubernetes Cluster | Kubeflow on vSphere</title>
-<meta name="description" content="Create a Tanzu Kubernetes Cluster">
-<meta property="og:title" content="Create a Tanzu Kubernetes Cluster" />
-<meta property="og:description" content="Create a Tanzu Kubernetes Cluster" />
+<title>Kubeflow Supervisor Service | Kubeflow on vSphere</title>
+<meta name="description" content="Deploy Kubeflow 1.6 with Supervisor Service">
+<meta property="og:title" content="Kubeflow Supervisor Service" />
+<meta property="og:description" content="Deploy Kubeflow 1.6 with Supervisor Service" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/cluster/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/supervisor_service/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-11-02T15:23:26+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<meta property="article:modified_time" content="2022-11-23T22:26:24+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
 
-<meta itemprop="name" content="Create a Tanzu Kubernetes Cluster">
-<meta itemprop="description" content="Create a Tanzu Kubernetes Cluster">
-<meta itemprop="dateModified" content="2022-11-02T15:23:26+08:00" />
-<meta itemprop="wordCount" content="388">
+<meta itemprop="name" content="Kubeflow Supervisor Service">
+<meta itemprop="description" content="Deploy Kubeflow 1.6 with Supervisor Service">
+<meta itemprop="dateModified" content="2022-11-23T22:26:24+08:00" />
+<meta itemprop="wordCount" content="349">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Create a Tanzu Kubernetes Cluster"/>
-<meta name="twitter:description" content="Create a Tanzu Kubernetes Cluster"/>
+<meta name="twitter:title" content="Kubeflow Supervisor Service"/>
+<meta name="twitter:description" content="Deploy Kubeflow 1.6 with Supervisor Service"/>
 
 
 
@@ -166,17 +166,17 @@
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"/>
   <label for="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/namespace/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace"><span class="">Create and configure a vSphere Namespace</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-li">
-  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check" checked/>
-  <label for="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/cluster/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster"><span class="td-sidebar-nav-active-item">Create a Tanzu Kubernetes Cluster</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentcluster-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/cluster/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcluster"><span class="">Create a Tanzu Kubernetes Cluster</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"/>
   <label for="m-ml-ops-platform-for-vspheredocsdeploymentcarvel-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/carvel/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentcarvel"><span class="">Deploy Kubeflow</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service-li">
-  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/supervisor_service/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service"><span class="">Kubeflow Supervisor Service</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service-check" checked/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/supervisor_service/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentsupervisor_service"><span class="td-sidebar-nav-active-item">Kubeflow Supervisor Service</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentauth-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentauth-check"/>
@@ -252,10 +252,10 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/deployment/cluster.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/deployment/cluster.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/deployment/cluster.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=Create%20a%20Tanzu%20Kubernetes%20Cluster" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/deployment/supervisor_service.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/deployment/supervisor_service.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/deployment/supervisor_service.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=Kubeflow%20Supervisor%20Service" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/vmware/ml-ops-platform-for-vsphere/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
@@ -265,11 +265,13 @@
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#install-the-kubernetes-cli-tools-for-vsphere">Install the Kubernetes CLI Tools for vSphere</a></li>
-    <li><a href="#tanzu-kubernetes-cluster-creation">Tanzu Kubernetes Cluster Creation</a></li>
-    <li><a href="#tanzu-kubernetes-cluster-login">Tanzu Kubernetes Cluster Login</a></li>
-    <li><a href="#trouble-shooting">Trouble shooting</a></li>
-    <li><a href="#whats-next">What&rsquo;s Next</a></li>
+    <li><a href="#preparation">Preparation</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#enable-the-kubeflow-supervisor-service">Enable the Kubeflow Supervisor Service</a></li>
+    <li><a href="#install-kubeflow">Install Kubeflow</a></li>
   </ul>
 </nav></div>
 
@@ -309,14 +311,14 @@
     <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/">Getting Started</a>
   </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/cluster/">Create a Tanzu Kubernetes Cluster</a>
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/supervisor_service/">Kubeflow Supervisor Service</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Create a Tanzu Kubernetes Cluster</h1>
-	<div class="lead">Create a Tanzu Kubernetes Cluster</div>
+	<h1>Kubeflow Supervisor Service</h1>
+	<div class="lead">Deploy Kubeflow 1.6 with Supervisor Service</div>
 	<header class="article-meta">
 		
 
@@ -332,127 +334,156 @@
 
 		
 	</header>    
-	<h2 id="install-the-kubernetes-cli-tools-for-vsphere">Install the Kubernetes CLI Tools for vSphere</h2>
+	<blockquote>
+<p>For VI Admin to deploy Kubeflow on your clusters</p>
+</blockquote>
+<h2 id="preparation">Preparation</h2>
 <hr>
-<p>Option 1: Follow the docs <a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-installation-configuration/GUID-0F6E45C4-3CB1-4562-9370-686668519FCA.html">here</a> to open the download page, download and install the Kubernetes CLI tools.</p>
-<p>Option 2: Follow the docs <a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-installation-configuration/GUID-0F6E45C4-3CB1-4562-9370-686668519FCA.html">here</a>, select <strong>Copy the link</strong> beneath the <strong>Link to CLI Tools</strong> heading, set it to VSPHERE_SUPERVISOR_CLUSTER_IP. Then run the following shell commands to install the Kubernetes CLI Tools.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Note: Please Set the VSPHERE_SUPERVISOR_CLUSTER_IP to the &#34;Link to CLI Tools&#34;, </span>
-</span></span><span class="line"><span class="cl"><span class="c1"># e.g. VSPHERE_SUPERVISOR_CLUSTER_IP=192.168.123.2</span>
-</span></span><span class="line"><span class="cl"><span class="nv">VSPHERE_SUPERVISOR_CLUSTER_IP</span><span class="o">=</span>&lt;The_IP_address_of_Link_to_CLI_Tools&gt;
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="sb">`</span>uname<span class="sb">`</span> <span class="o">==</span> Darwin <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">binary_type</span><span class="o">=</span>darwin-amd64
-</span></span><span class="line"><span class="cl"><span class="k">else</span>
-</span></span><span class="line"><span class="cl">    <span class="nv">binary_type</span><span class="o">=</span>linux-amd64
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>
-</span></span><span class="line"><span class="cl">wget --no-check-certificate https://<span class="si">${</span><span class="nv">VSPHERE_SUPERVISOR_CLUSTER_IP</span><span class="si">}</span>/wcp/plugin/<span class="si">${</span><span class="nv">binary_type</span><span class="si">}</span>/vsphere-plugin.zip -O vsphere-plugin.zip
-</span></span><span class="line"><span class="cl">unzip -o vsphere-plugin.zip
-</span></span><span class="line"><span class="cl">sudo mv bin/* /usr/local/bin/
-</span></span></code></pre></div><h2 id="tanzu-kubernetes-cluster-creation">Tanzu Kubernetes Cluster Creation</h2>
+<h4 id="a-tanzu-kubernetes-cluster">A Tanzu Kubernetes Cluster</h4>
+<p>Please setup a Tanzu Kubernetes Cluster follow the guides:</p>
+<ul>
+<li><a href="../namespace">Create and configure a vSphere Namespace</a></li>
+<li><a href="../cluster">Create a Tanzu Kubernetes Cluster</a></li>
+</ul>
+<h4 id="configure-a-proxy">Configure a Proxy</h4>
+<p>If your network have trouble accessing one of the following Docker registries:</p>
+<ul>
+<li>docker.io</li>
+<li>gcr.io</li>
+<li>quay.io</li>
+</ul>
+<p>Please refer to <a href="../troubleshooting/proxy"><strong>Configure a Proxy</strong></a> to configure a proxy.</p>
+<h2 id="enable-the-kubeflow-supervisor-service">Enable the Kubeflow Supervisor Service</h2>
 <hr>
 <ol>
-<li>Set all the constants based on the configurations of namespace you performed in the previous step <a href="../namespace"><strong>Create and configure a vSphere namespace</strong></a>.</li>
+<li>Add Kubeflow Supervisor Service to allow-list on vCenter Server.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># please replace it with your vCenter Server IP</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VC_IP</span><span class="o">=</span>&lt;The_IP_address_of_vCenter_server&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ssh root@<span class="si">${</span><span class="nv">VC_IP</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># List of SupervisorService IDs allowed to be created</span>
+</span></span><span class="line"><span class="cl">cat /etc/vmware/wcp/supervisor-services-allow-list.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Add kubeflow</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;\n# Kubeflow\nkubeflow&#34;</span> &gt;&gt; /etc/vmware/wcp/supervisor-services-allow-list.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Check again. The service would take a maximum of 10sec to reload the list into memory.</span>
+</span></span><span class="line"><span class="cl">cat /etc/vmware/wcp/supervisor-services-allow-list.txt
+</span></span></code></pre></div></li>
+<li>Download service YAML file at <a href="https://github.com/vmware/ml-ops-platform-for-vsphere/blob/main/supervisor-service/kubeflow-service-def.yaml">kubeflow-service-def.yaml</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-services-workloads/GUID-A0A5F6D4-87A4-46CA-A50A-33664F43F299.html">Add a Supervisor Service to vCenter Server</a></li>
+<li><a href="https://docs.vmware.com/en/VMware-vSphere/8.0/vsphere-with-tanzu-services-workloads/GUID-4843E6C6-747E-43B1-AC55-8F02299CC10E.html">Install a Supervisor Service on Supervisors</a></li>
 </ol>
+<h2 id="install-kubeflow">Install Kubeflow</h2>
+<hr>
+<ol>
+<li>
+<p>Set constants and login to the Supervisor Cluster.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## Supervisor Cluster info</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_SUPERVISOR_CLUSTER_IP</span><span class="o">=</span>&lt;The_IP_address_of_Link_to_CLI_Tools&gt;
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_SUPERVISOR_CLUSTER_IP</span><span class="o">=</span>&lt;The_IP_address_of_Supervisor_Cluster&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">## the namespace of the TKG you created</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_NAMESPACE</span><span class="o">=</span>namespace-kubeflow
-</span></span><span class="line"><span class="cl"><span class="c1">## TKG info</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## the name of the TKG you created</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_TKGS</span><span class="o">=</span>tkgs-kubeflow
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_TKGS_VERSION</span><span class="o">=</span>v1.22.11---vmware.2-tkg.2-zshippable
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_TKGS_VM_COUNT</span><span class="o">=</span><span class="m">2</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_TKGS_VM_CLASS</span><span class="o">=</span>guaranteed-large
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_TKGS_STORAGE_CLASS</span><span class="o">=</span>pacific-storage-policy
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_TKGS_STORAGE_SIZE</span><span class="o">=</span><span class="m">70</span>
 </span></span><span class="line"><span class="cl"><span class="c1">## vSphere username / password</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">VSPHERE_USERNAME</span><span class="o">=</span>administrator@vsphere.local
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBECTL_VSPHERE_PASSWORD</span><span class="o">=</span><span class="s1">&#39;Admin!23&#39;</span>
-</span></span></code></pre></div><ol start="2">
-<li>Run the command to login to the Supervisor Cluster.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl vsphere login <span class="se">\
+</span></span><span class="line"><span class="cl"><span class="c1">## the name of configmap, defines the Kubeflow specs</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBEFLOW_CONFIGMAP</span><span class="o">=</span>kubeflow
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">kubectl vsphere login <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --insecure-skip-tls-verify <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --server<span class="o">=</span><span class="si">${</span><span class="nv">VSPHERE_SUPERVISOR_CLUSTER_IP</span><span class="si">}</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>    --vsphere-username <span class="si">${</span><span class="nv">VSPHERE_USERNAME</span><span class="si">}</span> <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>
 </span></span><span class="line"><span class="cl">kubectl config use-context <span class="si">${</span><span class="nv">VSPHERE_NAMESPACE</span><span class="si">}</span>
-</span></span></code></pre></div><ol start="3">
-<li>Run the command to create a Tanzu Kubernetes Cluster.</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">### create TKC</span>
-</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; EOF | kubectl apply -f -
-</span></span></span><span class="line"><span class="cl"><span class="s">apiVersion: run.tanzu.vmware.com/v1alpha2
-</span></span></span><span class="line"><span class="cl"><span class="s">kind: TanzuKubernetesCluster                  
+</span></span></code></pre></div></li>
+<li>
+<p>Create a <strong>values.yaml</strong> follow the values schema at <a href="../carvel/#install-kubeflow">link</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">imageswap_labels</span><span class="p">:</span><span class="w"> </span><span class="kc">True</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">service_type</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;LoadBalancer&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">IP_address</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">CD_REGISTRATION_FLOW</span><span class="p">:</span><span class="w"> </span><span class="kc">True</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">OIDC_Authservice</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OIDC_AUTH_URL</span><span class="p">:</span><span class="w"> </span><span class="l">/dex/auth</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OIDC_PROVIDER</span><span class="p">:</span><span class="w"> </span><span class="l">http://dex.auth.svc.cluster.local:5556/dex</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OIDC_SCOPES</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;profile email groups&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">REDIRECT_URL</span><span class="p">:</span><span class="w"> </span><span class="l">/login/oidc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">SKIP_AUTH_URI</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/dex&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">USERID_CLAIM</span><span class="p">:</span><span class="w"> </span><span class="l">email</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">USERID_HEADER</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow-userid</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">USERID_PREFIX</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OIDC_CLIENT_ID</span><span class="p">:</span><span class="w"> </span><span class="l">kubeflow-oidc-authservice</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">OIDC_CLIENT_SECRET</span><span class="p">:</span><span class="w"> </span><span class="l">pUBnBOY80SnXgjibTYM9ZWNzY2xreNGQok</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">Dex</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">use_external</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    issuer: http://dex.auth.svc.cluster.local:5556/dex
+</span></span></span><span class="line"><span class="cl"><span class="sd">    storage:
+</span></span></span><span class="line"><span class="cl"><span class="sd">      type: kubernetes
+</span></span></span><span class="line"><span class="cl"><span class="sd">      config:
+</span></span></span><span class="line"><span class="cl"><span class="sd">        inCluster: true
+</span></span></span><span class="line"><span class="cl"><span class="sd">    web:
+</span></span></span><span class="line"><span class="cl"><span class="sd">      http: 0.0.0.0:5556
+</span></span></span><span class="line"><span class="cl"><span class="sd">    logger:
+</span></span></span><span class="line"><span class="cl"><span class="sd">      level: &#34;debug&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">      format: text
+</span></span></span><span class="line"><span class="cl"><span class="sd">    oauth2:
+</span></span></span><span class="line"><span class="cl"><span class="sd">      skipApprovalScreen: true
+</span></span></span><span class="line"><span class="cl"><span class="sd">    enablePasswordDB: true
+</span></span></span><span class="line"><span class="cl"><span class="sd">    staticPasswords:
+</span></span></span><span class="line"><span class="cl"><span class="sd">    - email: user@example.com
+</span></span></span><span class="line"><span class="cl"><span class="sd">      hash: $2y$12$4K/VkmDd1q1Orb3xAt82zu8gk7Ad6ReFR4LCP9UeYE90NLiN9Df72
+</span></span></span><span class="line"><span class="cl"><span class="sd">      # https://github.com/dexidp/dex/pull/1601/commits
+</span></span></span><span class="line"><span class="cl"><span class="sd">      # FIXME: Use hashFromEnv instead
+</span></span></span><span class="line"><span class="cl"><span class="sd">      username: user
+</span></span></span><span class="line"><span class="cl"><span class="sd">      userID: &#34;15841185641784&#34;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    staticClients:
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # https://github.com/dexidp/dex/pull/1664
+</span></span></span><span class="line"><span class="cl"><span class="sd">    - idEnv: OIDC_CLIENT_ID
+</span></span></span><span class="line"><span class="cl"><span class="sd">      redirectURIs: [&#34;/login/oidc&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="sd">      name: &#39;Dex Login Application&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sd">      secretEnv: OIDC_CLIENT_SECRET</span><span class="w">    
+</span></span></span></code></pre></div></li>
+<li>
+<p>Create a configmap from values.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl create configmap <span class="si">${</span><span class="nv">KUBEFLOW_CONFIGMAP</span><span class="si">}</span> --from-file<span class="o">=</span>values.yaml<span class="o">=</span>values.yaml -n <span class="si">${</span><span class="nv">VSPHERE_NAMESPACE</span><span class="si">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Run the command to install Kubeflow on the Tanzu Kubernetes Cluster you specify.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat <span class="s">&lt;&lt; EOF | kubectl apply -f -
+</span></span></span><span class="line"><span class="cl"><span class="s">apiVersion: peach.vmware.com/v1alpha1
+</span></span></span><span class="line"><span class="cl"><span class="s">kind: Kubeflow
 </span></span></span><span class="line"><span class="cl"><span class="s">metadata:
-</span></span></span><span class="line"><span class="cl"><span class="s">  name: ${VSPHERE_TKGS}                      
-</span></span></span><span class="line"><span class="cl"><span class="s">  namespace: ${VSPHERE_NAMESPACE}    
-</span></span></span><span class="line"><span class="cl"><span class="s">  annotations:
-</span></span></span><span class="line"><span class="cl"><span class="s">    run.tanzu.vmware.com/resolve-os-image: os-name=ubuntu
+</span></span></span><span class="line"><span class="cl"><span class="s">  name: kubeflow-install
+</span></span></span><span class="line"><span class="cl"><span class="s">  namespace: ${VSPHERE_NAMESPACE}
 </span></span></span><span class="line"><span class="cl"><span class="s">spec:
-</span></span></span><span class="line"><span class="cl"><span class="s">  topology:
-</span></span></span><span class="line"><span class="cl"><span class="s">    controlPlane:
-</span></span></span><span class="line"><span class="cl"><span class="s">      tkr:
-</span></span></span><span class="line"><span class="cl"><span class="s">        reference:
-</span></span></span><span class="line"><span class="cl"><span class="s">          name: ${VSPHERE_TKGS_VERSION}
-</span></span></span><span class="line"><span class="cl"><span class="s">      replicas: 1                                
-</span></span></span><span class="line"><span class="cl"><span class="s">      vmClass: ${VSPHERE_TKGS_VM_CLASS}
-</span></span></span><span class="line"><span class="cl"><span class="s">      storageClass: ${VSPHERE_TKGS_STORAGE_CLASS}
-</span></span></span><span class="line"><span class="cl"><span class="s">      volumes:
-</span></span></span><span class="line"><span class="cl"><span class="s">        - name: etcd
-</span></span></span><span class="line"><span class="cl"><span class="s">          mountPath: /var/lib/etcd
-</span></span></span><span class="line"><span class="cl"><span class="s">          capacity:
-</span></span></span><span class="line"><span class="cl"><span class="s">            storage: 20Gi
-</span></span></span><span class="line"><span class="cl"><span class="s">    nodePools:
-</span></span></span><span class="line"><span class="cl"><span class="s">    - name: workers
-</span></span></span><span class="line"><span class="cl"><span class="s">      replicas: ${VSPHERE_TKGS_VM_COUNT}
-</span></span></span><span class="line"><span class="cl"><span class="s">      vmClass: ${VSPHERE_TKGS_VM_CLASS}
-</span></span></span><span class="line"><span class="cl"><span class="s">      storageClass: ${VSPHERE_TKGS_STORAGE_CLASS}
-</span></span></span><span class="line"><span class="cl"><span class="s">      volumes:
-</span></span></span><span class="line"><span class="cl"><span class="s">        - name: containerd
-</span></span></span><span class="line"><span class="cl"><span class="s">          mountPath: /var/lib/containerd
-</span></span></span><span class="line"><span class="cl"><span class="s">          capacity:
-</span></span></span><span class="line"><span class="cl"><span class="s">            storage: ${VSPHERE_TKGS_STORAGE_SIZE}Gi
-</span></span></span><span class="line"><span class="cl"><span class="s">  settings:
-</span></span></span><span class="line"><span class="cl"><span class="s">    storage:
-</span></span></span><span class="line"><span class="cl"><span class="s">      defaultClass: ${VSPHERE_TKGS_STORAGE_CLASS}
-</span></span></span><span class="line"><span class="cl"><span class="s">    network:
-</span></span></span><span class="line"><span class="cl"><span class="s">      cni:
-</span></span></span><span class="line"><span class="cl"><span class="s">        name: antrea
-</span></span></span><span class="line"><span class="cl"><span class="s">      services:
-</span></span></span><span class="line"><span class="cl"><span class="s">        cidrBlocks: [&#34;198.51.100.0/12&#34;]
-</span></span></span><span class="line"><span class="cl"><span class="s">      pods:
-</span></span></span><span class="line"><span class="cl"><span class="s">        cidrBlocks: [&#34;192.0.2.0/16&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="s">  auth:
+</span></span></span><span class="line"><span class="cl"><span class="s">    vsphere_username: ${VSPHERE_USERNAME}
+</span></span></span><span class="line"><span class="cl"><span class="s">    vsphere_password: ${KUBECTL_VSPHERE_PASSWORD}
+</span></span></span><span class="line"><span class="cl"><span class="s">  tkg:
+</span></span></span><span class="line"><span class="cl"><span class="s">    namespace: ${VSPHERE_NAMESPACE}
+</span></span></span><span class="line"><span class="cl"><span class="s">    cluster_name: ${VSPHERE_TKGS}
+</span></span></span><span class="line"><span class="cl"><span class="s">  carvel:
+</span></span></span><span class="line"><span class="cl"><span class="s">    configmap: ${KUBEFLOW_CONFIGMAP}
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span></code></pre></div><h2 id="tanzu-kubernetes-cluster-login">Tanzu Kubernetes Cluster Login</h2>
-<p>Wait until the Tanzu Kubernetes Cluster is <code>Ready</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ kubectl get tkc
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">NAME             CONTROL PLANE   WORKER   TKR NAME                               AGE   READY   TKR COMPATIBLE   UPDATES AVAILABLE
-</span></span><span class="line"><span class="cl">tkgs-kubeflow    <span class="m">1</span>               <span class="m">2</span>        v1.22.11---vmware.2-tkg.2-zshippable   28m  True    True             <span class="o">[</span>v1.23.8+vmware.2-tkg.2-zshippable<span class="o">]</span>   
-</span></span></code></pre></div><p>Run the command to login to the Tanzu Kubernetes Cluster.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl vsphere login <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --insecure-skip-tls-verify <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --server<span class="o">=</span><span class="si">${</span><span class="nv">VSPHERE_SUPERVISOR_CLUSTER_IP</span><span class="si">}</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --vsphere-username <span class="si">${</span><span class="nv">VSPHERE_USERNAME</span><span class="si">}</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --tanzu-kubernetes-cluster-namespace<span class="o">=</span><span class="si">${</span><span class="nv">VSPHERE_NAMESPACE</span><span class="si">}</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --tanzu-kubernetes-cluster-name<span class="o">=</span><span class="si">${</span><span class="nv">VSPHERE_TKGS</span><span class="si">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">kubectl config use-context <span class="si">${</span><span class="nv">VSPHERE_TKGS</span><span class="si">}</span>
-</span></span></code></pre></div><h2 id="trouble-shooting">Trouble shooting</h2>
-<hr>
-<ul>
-<li>You see <code>ContentSourceBindingNotFound</code> error in <code>kubectl get tkc &lt;tkc_name&gt;</code></li>
-</ul>
-<p><img src="../assets/troubleshooting_contentsource.png" alt=""></p>
-<p>Please check if the <code>OVF Template</code> of content library you used is valid. Or it is duplicated with the existing <code>OVF Template</code>, which will cause the <code>Stored Locally</code> flag to be <code>No</code>.</p>
-<p><img src="../assets/troubleshooting_contentsource2.png" alt=""></p>
-<h2 id="whats-next">What&rsquo;s Next</h2>
-<hr>
-<p>Now you are ready to move to the next section <a href="../carvel">Deploy Kubeflow</a></p>
+</span></span></code></pre></div></li>
+<li>
+<p>Inspect installation process by running</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl logs kubeflow-worker --follow -n <span class="si">${</span><span class="nv">VSPHERE_NAMESPACE</span><span class="si">}</span>
+</span></span></code></pre></div></li>
+</ol>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 2, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/ea33ff7e3eaa88a7b3afec9d81b5e40846d0e212">add Kubeflow on vSphere website (ea33ff7)</a>
+  Last modified November 23, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/5c54876163637998ea22d06c534ce76d28a26512">Add supervisor Service and Docs (5c54876)</a>
 </div>
 
 </div>
