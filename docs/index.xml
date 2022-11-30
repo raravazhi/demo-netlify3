@@ -224,17 +224,15 @@
         
         
         &lt;ul&gt;
-&lt;li&gt;If you don&amp;rsquo;t have any hardware resource or do not want to setup from the ground, reach out to us at the slack channel &lt;a href=&#34;https://vmware.slack.com/archives/C046YEZMWQK&#34;&gt;#peach&lt;/a&gt; to request an account for Kubeflow and JupyterLab extension trials.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;vSphere 8.0 with Tanzu Deployment&lt;/strong&gt;: For a greenfield deployment (no vSphere with Tanzu deployed yet), you need to deploy vSphere with Tanzu first.
+&lt;li&gt;&lt;strong&gt;vSphere 8.0 with Tanzu Deployment&lt;/strong&gt;: For a greenfield deployment (no vSphere with Tanzu deployed yet), you will need to deploy vSphere with Tanzu first.
 &lt;ul&gt;
 &lt;li&gt;For the standard and regular setup, please refer to VMware official document &lt;a href=&#34;https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-152BE7D2-E227-4DAA-B527-557B564D9718.html&#34;&gt;vSphere with Tanzu Configuration and Management&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;If you only have limited hardware resource, for example, one server node, please refer to &lt;a href=&#34;https://confluence.eng.vmware.com/display/VCP/TKG+demo+appliance+setup+guide&#34;&gt;this document&lt;/a&gt; of vSphere with Tanzu deployment for testing purpose.&lt;/li&gt;
+&lt;li&gt;If you only have limited hardware resource, for example, one single server host, please refer to &lt;a href=&#34;../single_host&#34;&gt;this document&lt;/a&gt; of vSphere with Tanzu deployment for testing purpose, or use &lt;a href=&#34;https://williamlam.com/2021/09/single-node-supervisor-control-plane-vm-for-vsphere-with-tanzu-now-possible-in-vsphere-7-0-update-3.html&#34;&gt;this workaround&lt;/a&gt; for single host.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;If you want to use Nvidia GPU resources on vSphere platform, setup vGPU or Bitfusion under TKG with following documents&lt;/strong&gt;
+&lt;li&gt;&lt;strong&gt;If you want to use Nvidia GPU resources on vSphere platform, setup vGPU TKG with following documents&lt;/strong&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;vGPU&lt;/strong&gt;: &lt;a href=&#34;https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-2B4CAE86-BAF4-4411-ABB1-D5F2E9EF0A3D.html&#34;&gt;Deploy AI/ML Workloads on Tanzu Kubernetes Clusters&lt;/a&gt; / &lt;a href=&#34;https://wiki.eng.vmware.com/IDEsxGpu/2022/Drivers&#34;&gt;Internal Docs and Resources&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Bitfusion&lt;/strong&gt;: &lt;a href=&#34;https://confluence.eng.vmware.com/pages/viewpage.action?pageId=1512830863&#34;&gt;bitfusion_device_plugin deployment on TKG 1.2+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;vGPU&lt;/strong&gt;: &lt;a href=&#34;https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-2B4CAE86-BAF4-4411-ABB1-D5F2E9EF0A3D.html&#34;&gt;Deploy AI/ML Workloads on Tanzu Kubernetes Clusters&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -329,6 +327,166 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;whats-next&#34;&gt;What&amp;rsquo;s Next&lt;/h2&gt;
 &lt;hr&gt;
 &lt;p&gt;Now you are ready to move to the next tutorial &lt;a href=&#34;../lab2&#34;&gt;Notebook&lt;/a&gt; about Data cleaning, EDA, feature engineering, model training, evaluations&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Docs: Testbed Setup</title>
+      <link>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/single_host/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/single_host/</guid>
+      <description>
+        
+        
+        &lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h3&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;A dedicated physical machine that can run ESXi 7.0.
+&lt;ol&gt;
+&lt;li&gt;Memory requirements: 64GB minimum, 128GB or more is recommended.&lt;/li&gt;
+&lt;li&gt;Disk space requirements: 1TB minimum, 2TB or more is recommended.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;A network segment that meets the following requirements:
+&lt;ol&gt;
+&lt;li&gt;At least a /24 segment with 200+ available IPs, with at least 20 static IPs and the rest are DHCP IPs.&lt;/li&gt;
+&lt;li&gt;DHCP, DNS, and NTP services are available in the network segment.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;ESXi 7.0 and vCenter Server 7.0 installer ISO files. The latest release of ESXi 7.0 and vCenter Server 7.0 are recommended.&lt;/li&gt;
+&lt;li&gt;A Linux machine that can run docker commands if you have no control over the DNS server in the network segment.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;steps-to-setup-tkg-demo-environment&#34;&gt;Steps to setup TKG demo environment&lt;/h3&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Fresh install ESXi 7.0 on the physical machine. Configure NTP server for the ESXi.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install vCenter Server 7.0 on the physical machine. Please pay attention to the following points when running the installation wizard:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Be sure to enable thin disk mode for vCenter Server if available disk space is less than 1.5TB.&lt;/li&gt;
+&lt;li&gt;Be sure to configure NTP server.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new datacenter in the vCenter Server, and then create a new cluster in the datacenter. Be sure to enable DRS for this new cluster (In this example, the name of the datacenter is &lt;strong&gt;Demo&lt;/strong&gt;, and the name of the cluster is &lt;strong&gt;Tanzu&lt;/strong&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add the ESXi host installed in step 1 to the cluster created in step 3. Right click the host, and then click &lt;strong&gt;Maintenance Mode&lt;/strong&gt; – &lt;strong&gt;Exit Maintenance Mode&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Right click the cluster created in step 3, and then click &lt;strong&gt;New Resource Pool …&lt;/strong&gt; to create a new resource pool (In this example, the name of this resource pool is &lt;strong&gt;TKG&lt;/strong&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Right click the datacenter created in step 3, and then click &lt;strong&gt;New Folder&lt;/strong&gt; – &lt;strong&gt;New VM and Template Folder …&lt;/strong&gt; to create a new VM folder (In this example, the name of this VM folder is &lt;strong&gt;TKG&lt;/strong&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Click the ESXi host in Inventory view. Click &lt;strong&gt;Configure&lt;/strong&gt; – &lt;strong&gt;Networking&lt;/strong&gt; – &lt;strong&gt;Virtual switches&lt;/strong&gt; – &lt;strong&gt;ADD NETWORKING&lt;/strong&gt;. Select &lt;strong&gt;Virtual Machine Port Group for a Standard Switch&lt;/strong&gt;. Set a name for this port group (In this example, the name of this port group is &lt;strong&gt;tkg-network&lt;/strong&gt;).&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Navigate to &lt;strong&gt;Menu&lt;/strong&gt; – &lt;strong&gt;Content Libraries&lt;/strong&gt;. Click &lt;strong&gt;CREATE&lt;/strong&gt; link. Give a name to the content library (In this example, the name of this content library is &lt;strong&gt;TKG Demo&lt;/strong&gt;). Use default settings for &lt;strong&gt;2 Configure content library&lt;/strong&gt; and &lt;strong&gt;3 Apply security policy&lt;/strong&gt;. Select the datastore on the ESXi machine in &lt;strong&gt;4 Add storage&lt;/strong&gt;, and then finish this wizard.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download the following TKG demo appliance files, and upload them to the content library created in step 8.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Download &lt;a href=&#34;https://download3.vmware.com/software/vmw-tools/tkg-demo-appliance/TKG-Demo-Appliance-1.3.1.ova&#34;&gt;https://download3.vmware.com/software/vmw-tools/tkg-demo-appliance/TKG-Demo-Appliance-1.3.1.ova&lt;/a&gt;. Click name of the content library created in step 8 (In this example, name of this content library is &lt;strong&gt;TKG Demo&lt;/strong&gt;), and then click &lt;strong&gt;ACTIONS&lt;/strong&gt; – &lt;strong&gt;Import Item&lt;/strong&gt;. Click &lt;strong&gt;Local file&lt;/strong&gt; – &lt;strong&gt;UPLOAD FILES&lt;/strong&gt;, browse to file TKG-Demo-Appliance-1.3.1.ova, click &lt;strong&gt;Open&lt;/strong&gt;. Click &lt;strong&gt;IMPORT&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download K8s v1.20.5 OVA from &lt;a href=&#34;https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;amp;productId=988&amp;amp;rPId=53095&#34;&gt;https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;amp;productId=988&amp;amp;rPId=53095&lt;/a&gt;. Click &lt;strong&gt;ACTIONS&lt;/strong&gt; – &lt;strong&gt;Import Item&lt;/strong&gt;. Click &lt;strong&gt;Local file&lt;/strong&gt; – &lt;strong&gt;UPLOAD FILES&lt;/strong&gt;, browse to file photon-3-kube-v1.20.5+vmware.2-tkg.1-3176963957469777230.ova, click &lt;strong&gt;Open&lt;/strong&gt;. Click &lt;strong&gt;IMPORT&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Download K8s v1.19.9 OVA from &lt;a href=&#34;https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;amp;productId=988&amp;amp;rPId=53095&#34;&gt;https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;amp;productId=988&amp;amp;rPId=53095&lt;/a&gt;. Click &lt;strong&gt;ACTIONS&lt;/strong&gt; – &lt;strong&gt;Import Item&lt;/strong&gt;. Click &lt;strong&gt;Local file&lt;/strong&gt; – &lt;strong&gt;UPLOAD FILES&lt;/strong&gt;, browse to file photon-3-kube-v1.19.9+vmware.2-tkg.1-11749392838678570289.ova, click &lt;strong&gt;Open&lt;/strong&gt;. Click &lt;strong&gt;IMPORT&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploy K8s content library:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Right click the &lt;strong&gt;photon-3-kube-v1.20.5+vmware.2-tkg.1-3176963957469777230&lt;/strong&gt; item in content library, select &lt;strong&gt;New VM from This Template …&lt;/strong&gt;. Name this VM as &lt;strong&gt;photon-3-kube-v1.20.5_vmware.2&lt;/strong&gt;, select the VM folder created in step 6, select the resource pool created in step 5 in the next page, review and accept the license, select a datastore, select the port group created in step 7 as the destination network to connect to, and click &lt;strong&gt;FINISH&lt;/strong&gt;. After the deployment is done, right click VM &lt;strong&gt;photon-3-kube-v1.20.5_vmware.2&lt;/strong&gt; and click &lt;strong&gt;Template&lt;/strong&gt; – &lt;strong&gt;Convert to Template&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Right click the &lt;strong&gt;photon-3-kube-v1.19.9+vmware.2-tkg.1-11749392838678570289&lt;/strong&gt; item in content library, select &lt;strong&gt;New VM from This Template …&lt;/strong&gt;. Name this VM as &lt;strong&gt;photon-3-kube-v1.19.9_vmware.2&lt;/strong&gt;, select the VM folder created in step 6, select the resource pool created in step 5 in the next page, review and accept the license, select a datastore, select the port group created in step 7 as the destination network to connect to, and click &lt;strong&gt;FINISH&lt;/strong&gt;. After the deployment is done, right click VM &lt;strong&gt;photon-3-kube-v1.19.9_vmware.2&lt;/strong&gt; and click &lt;strong&gt;Template&lt;/strong&gt; – &lt;strong&gt;Convert to Template&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploy TKG demo appliance:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Right click the resource pool created in step 5 and select &lt;strong&gt;New Virtual Machine…&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Deploy from template&lt;/strong&gt; and choose &lt;strong&gt;TKG-Demo-Appliance-1.3.1&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Name this VM and put it in the VM folder created in step 6.&lt;/li&gt;
+&lt;li&gt;Select the resource pool created in step 5 as compute resource.&lt;/li&gt;
+&lt;li&gt;Select a datastore for this VM.&lt;/li&gt;
+&lt;li&gt;Select the port group created in step 7 as network.&lt;/li&gt;
+&lt;li&gt;Fill in &lt;strong&gt;Networking&lt;/strong&gt; and &lt;strong&gt;OS Credentials&lt;/strong&gt; sections in &lt;strong&gt;Customize template&lt;/strong&gt; page.&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;FINISH&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Power on the TKG demo appliance VM. Wait for the initialization process finishes, and then login with username &lt;strong&gt;root&lt;/strong&gt; and password set in step 11.7.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run command &lt;code&gt;ssh-keygen&lt;/code&gt;, and then run &lt;code&gt;cat /root/.ssh/id_rsa.pub&lt;/code&gt; to display the SSH key on terminal. Keep this terminal window open for use later.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following steps to add a DNS record for the TKG setup:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Login the Linux machine/VM prepared for this task as root. Run command &lt;code&gt;systemctl stop systemd-resolved&lt;/code&gt; to stop the build-in DNS service if it is running.&lt;/li&gt;
+&lt;li&gt;Create file &lt;strong&gt;~/Corefile&lt;/strong&gt; with the following content using a text editor (like &lt;strong&gt;vi&lt;/strong&gt;):&lt;/li&gt;
+&lt;li&gt;Create file &lt;strong&gt;~/example.db&lt;/strong&gt; with the following content using a text editor (like &lt;strong&gt;vi&lt;/strong&gt;):&lt;/li&gt;
+&lt;li&gt;Run the following command to launch CoreDNS service:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker run --restart&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;always --volume&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;:/root/ -p 53:53/udp harbor-repo.vmware.com/dockerhub-proxy-cache/coredns/coredns -conf ~/Corefile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Run the following command from the terminal of TKG demo appliance to verify this DNS server is setup correctly:
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dig @&amp;lt;IP address of the Linux machine&amp;gt; registry.rainpole.io
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit file &lt;strong&gt;/etc/systemd/network/99-dhcp-en.network&lt;/strong&gt;, change the DNS server setting in this file to the correct DNS server, not this appliance itself. If you have launched your own DNS service in step 14, point DNS server to the Linux VM you are using in step 14. Run the following commands to apply this change.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl restart systemd-networkd
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;systemctl restart systemd-resolved
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit file &lt;strong&gt;vsphere-tkg-mgmt-template.yaml&lt;/strong&gt;. Make the following changes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In &lt;strong&gt;vSphere configuration&lt;/strong&gt; section, change &lt;strong&gt;VSPHERE_SERVER&lt;/strong&gt; to the IP of the vCenter Server.&lt;/li&gt;
+&lt;li&gt;Change &lt;strong&gt;VSPHERE_PASSWORD&lt;/strong&gt; to the password of vSphere administrator.&lt;/li&gt;
+&lt;li&gt;Change &lt;strong&gt;VSPHERE_USERNAME&lt;/strong&gt; to the username of vSphere administrator.&lt;/li&gt;
+&lt;li&gt;Change &lt;strong&gt;VSPHERE_DATACENTER&lt;/strong&gt; to the name of datacenter created in step 3.&lt;/li&gt;
+&lt;li&gt;Change the path in &lt;strong&gt;VSPHERE_RESOURCE_POOL&lt;/strong&gt; to the actual path, which means the datacenter name and cluster name in the path should be changed.&lt;/li&gt;
+&lt;li&gt;Change the datacenter name and datastore name in &lt;strong&gt;VSPHERE_DATASTORE&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Change the datacenter name and VM folder name in &lt;strong&gt;VSPHERE_FOLDER&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Change &lt;strong&gt;VSPHERE_NETWORK&lt;/strong&gt; to the name of port group created in step 7.&lt;/li&gt;
+&lt;li&gt;Change &lt;strong&gt;VSPHERE_CONTROL_PLANE_ENDPOINT&lt;/strong&gt; to the static IP address of TKG management cluster.&lt;/li&gt;
+&lt;li&gt;Copy the content of file &lt;strong&gt;/root/.ssh/id_rsa.pub&lt;/strong&gt; (available on screen in step 13) to &lt;strong&gt;VSPHERE_SSH_AUTHORIZED_KEY&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;In &lt;strong&gt;Node configuration&lt;/strong&gt; section, check the resource settings of TKG nodes, especially the disk size. Make changes if needed.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Edit file &lt;strong&gt;vsphere-tkg-workload-1-template.yaml&lt;/strong&gt; and &lt;strong&gt;vsphere-tkg-workload-2-template.yaml&lt;/strong&gt;. Make similar changes to the two files according to step 16.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to create TKG management cluster:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tanzu management-cluster create -f vsphere-tkg-mgmt-template.yaml -v2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command takes about five minutes. Output of this command is like the following:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to create TKG workload cluster 1:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tanzu cluster create -f vsphere-tkg-workload-1-template.yaml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command may take 10 to 15 minutes. Output of this command is like the following:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run the following command to create TKG workload cluster 2:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tanzu cluster create -f vsphere-tkg-workload-2-template.yaml --tkr v1.19.9---vmware.2-tkg.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This command may take 10 to 15 minutes. Output of this command is like the following:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>

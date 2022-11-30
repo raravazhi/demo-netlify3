@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/deployment\/prerequisites\/",
-      "wordCount" : "140",
+      "wordCount" : "100",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-11-02T15:23:26+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<meta property="article:modified_time" content="2022-11-30T15:32:03+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
 
 <meta itemprop="name" content="Prerequisites">
 <meta itemprop="description" content="Set up environment for deploying Kubeflow on vSphere">
-<meta itemprop="dateModified" content="2022-11-02T15:23:26+08:00" />
-<meta itemprop="wordCount" content="140">
+<meta itemprop="dateModified" content="2022-11-30T15:32:03+08:00" />
+<meta itemprop="wordCount" content="100">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Prerequisites"/>
 <meta name="twitter:description" content="Set up environment for deploying Kubeflow on vSphere"/>
@@ -155,6 +155,10 @@
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check" checked/>
   <label for="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites"><span class="td-sidebar-nav-active-item">Prerequisites</span></a></label>
+  
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/single_host/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host"><span class="">Testbed Setup</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"/>
@@ -317,17 +321,15 @@
 		
 	</header>    
 	<ul>
-<li>If you don&rsquo;t have any hardware resource or do not want to setup from the ground, reach out to us at the slack channel <a href="https://vmware.slack.com/archives/C046YEZMWQK">#peach</a> to request an account for Kubeflow and JupyterLab extension trials.</li>
-<li><strong>vSphere 8.0 with Tanzu Deployment</strong>: For a greenfield deployment (no vSphere with Tanzu deployed yet), you need to deploy vSphere with Tanzu first.
+<li><strong>vSphere 8.0 with Tanzu Deployment</strong>: For a greenfield deployment (no vSphere with Tanzu deployed yet), you will need to deploy vSphere with Tanzu first.
 <ul>
 <li>For the standard and regular setup, please refer to VMware official document <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-152BE7D2-E227-4DAA-B527-557B564D9718.html">vSphere with Tanzu Configuration and Management</a>.</li>
-<li>If you only have limited hardware resource, for example, one server node, please refer to <a href="https://confluence.eng.vmware.com/display/VCP/TKG+demo+appliance+setup+guide">this document</a> of vSphere with Tanzu deployment for testing purpose.</li>
+<li>If you only have limited hardware resource, for example, one single server host, please refer to <a href="../single_host">this document</a> of vSphere with Tanzu deployment for testing purpose, or use <a href="https://williamlam.com/2021/09/single-node-supervisor-control-plane-vm-for-vsphere-with-tanzu-now-possible-in-vsphere-7-0-update-3.html">this workaround</a> for single host.</li>
 </ul>
 </li>
-<li><strong>If you want to use Nvidia GPU resources on vSphere platform, setup vGPU or Bitfusion under TKG with following documents</strong>
+<li><strong>If you want to use Nvidia GPU resources on vSphere platform, setup vGPU TKG with following documents</strong>
 <ul>
-<li><strong>vGPU</strong>: <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-2B4CAE86-BAF4-4411-ABB1-D5F2E9EF0A3D.html">Deploy AI/ML Workloads on Tanzu Kubernetes Clusters</a> / <a href="https://wiki.eng.vmware.com/IDEsxGpu/2022/Drivers">Internal Docs and Resources</a></li>
-<li><strong>Bitfusion</strong>: <a href="https://confluence.eng.vmware.com/pages/viewpage.action?pageId=1512830863">bitfusion_device_plugin deployment on TKG 1.2+</a></li>
+<li><strong>vGPU</strong>: <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/vmware-vsphere-with-tanzu/GUID-2B4CAE86-BAF4-4411-ABB1-D5F2E9EF0A3D.html">Deploy AI/ML Workloads on Tanzu Kubernetes Clusters</a></li>
 </ul>
 </li>
 </ul>
@@ -335,7 +337,7 @@
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 2, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/ea33ff7e3eaa88a7b3afec9d81b5e40846d0e212">add Kubeflow on vSphere website (ea33ff7)</a>
+  Last modified November 30, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/e0dc37fb17cacf11a632b9028b3b407d10955cf7">Add doc to setup vSphere on single host (#19) (e0dc37f)</a>
 </div>
 
 </div>

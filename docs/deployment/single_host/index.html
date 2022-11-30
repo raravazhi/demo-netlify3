@@ -15,9 +15,9 @@
            "@id": "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/"
       },
       "articleSection" : "docs",
-      "name" : "Introduction",
-      "headline" : "Introduction",
-      "description" : "Introduction of Kubeflow on vSphere 8.0",
+      "name" : "Testbed Setup",
+      "headline" : "Testbed Setup",
+      "description" : "Set up vSphere with Tanzu on single host",
       "inLanguage" : "en-US",
       "author" : "",
       "creator" : "",
@@ -27,8 +27,8 @@
       "copyrightYear" : "0001",
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
-      "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/introduction\/",
-      "wordCount" : "340",
+      "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/deployment\/single_host\/",
+      "wordCount" : "1244",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -42,22 +42,22 @@
 <meta name="msapplication-TileColor" content="#4279f4">
 <meta name="theme-color" content="#4279f4">
 
-<title>Introduction | Kubeflow on vSphere</title>
-<meta name="description" content="Introduction of Kubeflow on vSphere 8.0">
-<meta property="og:title" content="Introduction" />
-<meta property="og:description" content="Introduction of Kubeflow on vSphere 8.0" />
+<title>Testbed Setup | Kubeflow on vSphere</title>
+<meta name="description" content="Set up vSphere with Tanzu on single host">
+<meta property="og:title" content="Testbed Setup" />
+<meta property="og:description" content="Set up vSphere with Tanzu on single host" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/introduction/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/single_host/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-11-16T09:25:13+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<meta property="article:modified_time" content="2022-11-30T15:32:03+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
 
-<meta itemprop="name" content="Introduction">
-<meta itemprop="description" content="Introduction of Kubeflow on vSphere 8.0">
-<meta itemprop="dateModified" content="2022-11-16T09:25:13+08:00" />
-<meta itemprop="wordCount" content="340">
+<meta itemprop="name" content="Testbed Setup">
+<meta itemprop="description" content="Set up vSphere with Tanzu on single host">
+<meta itemprop="dateModified" content="2022-11-30T15:32:03+08:00" />
+<meta itemprop="wordCount" content="1244">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Introduction"/>
-<meta name="twitter:description" content="Introduction of Kubeflow on vSphere 8.0"/>
+<meta name="twitter:title" content="Testbed Setup"/>
+<meta name="twitter:description" content="Set up vSphere with Tanzu on single host"/>
 
 
 
@@ -69,6 +69,12 @@
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
   crossorigin="anonymous"></script>
+
+    
+    <link href="/ml-ops-platform-for-vsphere/css/syntax.min.css" rel="stylesheet">
+
+    
+    <link href="/ml-ops-platform-for-vsphere/css/copy-code-button.min.css" rel="stylesheet">
 
 
   </head>
@@ -143,12 +149,12 @@
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocs-li">
   <a href="/ml-ops-platform-for-vsphere/docs/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-ml-ops-platform-for-vspheredocs"><span class="">Documentation</span></a>
   <ul class="ul-1">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocsintroduction-li">
-  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsintroduction-check" checked/>
-  <label for="m-ml-ops-platform-for-vspheredocsintroduction-check"><a href="/ml-ops-platform-for-vsphere/docs/introduction/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsintroduction"><span class="td-sidebar-nav-active-item">Introduction</span></a></label>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsintroduction-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsintroduction-check"/>
+  <label for="m-ml-ops-platform-for-vspheredocsintroduction-check"><a href="/ml-ops-platform-for-vsphere/docs/introduction/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsintroduction"><span class="">Introduction</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-ml-ops-platform-for-vspheredocsdeployment-li">
-  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeployment-check"/>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-ml-ops-platform-for-vspheredocsdeployment-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeployment-check" checked/>
   <label for="m-ml-ops-platform-for-vspheredocsdeployment-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/" class="align-left pl-0  td-sidebar-link td-sidebar-link__section" id="m-ml-ops-platform-for-vspheredocsdeployment"><span class="">Getting Started</span></a></label>
   
   <ul class="ul-2 foldable">
@@ -156,9 +162,9 @@
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check"/>
   <label for="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/prerequisites/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentprerequisites"><span class="">Prerequisites</span></a></label>
   
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-li">
-  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-check"/>
-  <label for="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/single_host/" class="align-left pl-0  td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host"><span class="">Testbed Setup</span></a></label>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-li">
+  <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-check" checked/>
+  <label for="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host-check"><a href="/ml-ops-platform-for-vsphere/docs/deployment/single_host/" class="align-left pl-0  active td-sidebar-link td-sidebar-link__page" id="m-ml-ops-platform-for-vspheredocsdeploymentsingle_host"><span class="td-sidebar-nav-active-item">Testbed Setup</span></a></label>
   
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-li">
   <input type="checkbox" id="m-ml-ops-platform-for-vspheredocsdeploymentnamespace-check"/>
@@ -250,16 +256,27 @@
           <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
             
 <div class="td-page-meta ml-2 pb-1 pt-2 mb-0">
-<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/introduction.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/introduction.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/introduction.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
-  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=Introduction" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
+<a href="https://github.com/vmware/ml-ops-platform-for-vsphere//tree/main/website/content/en/docs/deployment/single_host.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa fa-file-alt fa-fw"></i> View page source</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//edit/main/website/content/en/docs/deployment/single_host.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//new/main/website/content/en/docs/deployment/single_host.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa fa-edit fa-fw"></i> Create child page</a>
+  <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//issues/new?title=Testbed%20Setup" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fab fa-github fa-fw"></i> Create documentation issue</a>
   <a href="https://github.com/vmware/ml-ops-platform-for-vsphere/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fas fa-tasks fa-fw"></i> Create project issue</a>
   
 </div>
 
             
 
+
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#steps-to-setup-tkg-demo-environment">Steps to setup TKG demo environment</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
 
 
 
@@ -293,15 +310,18 @@
   <li class="breadcrumb-item">
     <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/">Documentation</a>
   </li>
+  <li class="breadcrumb-item">
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/">Getting Started</a>
+  </li>
   <li class="breadcrumb-item active" aria-current="page">
-    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/introduction/">Introduction</a>
+    <a href="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/deployment/single_host/">Testbed Setup</a>
   </li>
   </ol>
 </nav>
             
 <div class="td-content">
-	<h1>Introduction</h1>
-	<div class="lead">Introduction of Kubeflow on vSphere 8.0</div>
+	<h1>Testbed Setup</h1>
+	<div class="lead">Set up vSphere with Tanzu on single host</div>
 	<header class="article-meta">
 		
 
@@ -317,20 +337,158 @@
 
 		
 	</header>    
-	<hr>
-<p>VMware vSphere 8 is one of the most advanced enterprise workload platforms. It brings the benefits of cloud to on-premises workloads, supercharges performance through DPUs and GPUs, and accelerates innovation with an enterprise-ready integrated Kubernetes runtime.</p>
-<p>In the world of AI/ML, vSphere 8 unleashes the power of AI for all enterprises by providing world-class end-to-end AI-Ready infrastructure for enterprise IT. vSphere AI/ML solutions enable IT admins to deliver an AI-Ready infrastructure on which data scientists can deliver and scale AI and ML projects and help organizations scale modern workloads on the same vSphere infrastructure that they have already invested in.</p>
-<p>Kubeflow is a free and open-source platform dedicated to making deployments of machine learning (ML) workflows on Kubernetes simple, portable and scalable. To achieve this goal, Kubeflow has incorporated various relevant open-source tools that work well with Kubernetes. Those tools include Argo for pipeline orchestration, Istio for service mesh, Jupyter for notebooks, Spark, TensorBoard, Katib, et al. Kubeflow is supported by the biggest names in tech, receiving over 1000 contributions from companies like Google, AWS, Microsoft, VMware, Red Hat, Bloomberg, Cisco, IBM, and Intel.</p>
-<p>VMware vSphere is contributing to the open-source Kubeflow community by providing vSphere-specific distribution of Kubeflow, named <em><strong>Kubeflow on vSphere</strong></em>, to help enterprises and organizations build and streamline an end-to-end ML workflow. With the most advanced features of vSphere 8 as well as the seamless enablement and integration of Kubeflow, Kubeflow on vSphere aims to help users build highly reliable, secure, portable and scalable ML workflows with reduced operational overhead.</p>
-<p>Especially, Kubeflow on vSphere provides Carvel packaging and vSphere app platform support, authentication support, GPU virtualization support, etc. More sophisticated integration and features are on the way.</p>
-<p>Meanwhile, we maintained documentation <a href="https://core.vmware.com/aiml-solutions">Running Kubeflow on AI-Ready Enterprise Platform on VMware vSphere 7 with VMware Tanzu Kubernetes Grid</a>. If you want to know how to deploy and use vanilla Kubeflow on vSphere 7 with TKG, this documentation is a good start.</p>
-<h2 id="whats-next">What&rsquo;s next</h2>
-<p>Now move forward to <a href="../deployment/">Getting Started</a> and follow our step-by-step instructions to deploy Kubeflow on vSphere!</p>
+	<h3 id="prerequisites">Prerequisites</h3>
+<hr>
+<ol>
+<li>A dedicated physical machine that can run ESXi 7.0.
+<ol>
+<li>Memory requirements: 64GB minimum, 128GB or more is recommended.</li>
+<li>Disk space requirements: 1TB minimum, 2TB or more is recommended.</li>
+</ol>
+</li>
+<li>A network segment that meets the following requirements:
+<ol>
+<li>At least a /24 segment with 200+ available IPs, with at least 20 static IPs and the rest are DHCP IPs.</li>
+<li>DHCP, DNS, and NTP services are available in the network segment.</li>
+</ol>
+</li>
+<li>ESXi 7.0 and vCenter Server 7.0 installer ISO files. The latest release of ESXi 7.0 and vCenter Server 7.0 are recommended.</li>
+<li>A Linux machine that can run docker commands if you have no control over the DNS server in the network segment.</li>
+</ol>
+<h3 id="steps-to-setup-tkg-demo-environment">Steps to setup TKG demo environment</h3>
+<hr>
+<ol>
+<li>
+<p>Fresh install ESXi 7.0 on the physical machine. Configure NTP server for the ESXi.</p>
+</li>
+<li>
+<p>Install vCenter Server 7.0 on the physical machine. Please pay attention to the following points when running the installation wizard:</p>
+<ol>
+<li>Be sure to enable thin disk mode for vCenter Server if available disk space is less than 1.5TB.</li>
+<li>Be sure to configure NTP server.</li>
+</ol>
+</li>
+<li>
+<p>Create a new datacenter in the vCenter Server, and then create a new cluster in the datacenter. Be sure to enable DRS for this new cluster (In this example, the name of the datacenter is <strong>Demo</strong>, and the name of the cluster is <strong>Tanzu</strong>).</p>
+</li>
+<li>
+<p>Add the ESXi host installed in step 1 to the cluster created in step 3. Right click the host, and then click <strong>Maintenance Mode</strong> – <strong>Exit Maintenance Mode</strong>.</p>
+</li>
+<li>
+<p>Right click the cluster created in step 3, and then click <strong>New Resource Pool …</strong> to create a new resource pool (In this example, the name of this resource pool is <strong>TKG</strong>).</p>
+</li>
+<li>
+<p>Right click the datacenter created in step 3, and then click <strong>New Folder</strong> – <strong>New VM and Template Folder …</strong> to create a new VM folder (In this example, the name of this VM folder is <strong>TKG</strong>).</p>
+</li>
+<li>
+<p>Click the ESXi host in Inventory view. Click <strong>Configure</strong> – <strong>Networking</strong> – <strong>Virtual switches</strong> – <strong>ADD NETWORKING</strong>. Select <strong>Virtual Machine Port Group for a Standard Switch</strong>. Set a name for this port group (In this example, the name of this port group is <strong>tkg-network</strong>).</p>
+</li>
+<li>
+<p>Navigate to <strong>Menu</strong> – <strong>Content Libraries</strong>. Click <strong>CREATE</strong> link. Give a name to the content library (In this example, the name of this content library is <strong>TKG Demo</strong>). Use default settings for <strong>2 Configure content library</strong> and <strong>3 Apply security policy</strong>. Select the datastore on the ESXi machine in <strong>4 Add storage</strong>, and then finish this wizard.</p>
+</li>
+<li>
+<p>Download the following TKG demo appliance files, and upload them to the content library created in step 8.</p>
+<ol>
+<li>
+<p>Download <a href="https://download3.vmware.com/software/vmw-tools/tkg-demo-appliance/TKG-Demo-Appliance-1.3.1.ova">https://download3.vmware.com/software/vmw-tools/tkg-demo-appliance/TKG-Demo-Appliance-1.3.1.ova</a>. Click name of the content library created in step 8 (In this example, name of this content library is <strong>TKG Demo</strong>), and then click <strong>ACTIONS</strong> – <strong>Import Item</strong>. Click <strong>Local file</strong> – <strong>UPLOAD FILES</strong>, browse to file TKG-Demo-Appliance-1.3.1.ova, click <strong>Open</strong>. Click <strong>IMPORT</strong>.</p>
+</li>
+<li>
+<p>Download K8s v1.20.5 OVA from <a href="https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;productId=988&amp;rPId=53095">https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;productId=988&amp;rPId=53095</a>. Click <strong>ACTIONS</strong> – <strong>Import Item</strong>. Click <strong>Local file</strong> – <strong>UPLOAD FILES</strong>, browse to file photon-3-kube-v1.20.5+vmware.2-tkg.1-3176963957469777230.ova, click <strong>Open</strong>. Click <strong>IMPORT</strong>.</p>
+</li>
+<li>
+<p>Download K8s v1.19.9 OVA from <a href="https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;productId=988&amp;rPId=53095">https://customerconnect.vmware.com/downloads/details?downloadGroup=TKG-131&amp;productId=988&amp;rPId=53095</a>. Click <strong>ACTIONS</strong> – <strong>Import Item</strong>. Click <strong>Local file</strong> – <strong>UPLOAD FILES</strong>, browse to file photon-3-kube-v1.19.9+vmware.2-tkg.1-11749392838678570289.ova, click <strong>Open</strong>. Click <strong>IMPORT</strong>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Deploy K8s content library:</p>
+<ol>
+<li>
+<p>Right click the <strong>photon-3-kube-v1.20.5+vmware.2-tkg.1-3176963957469777230</strong> item in content library, select <strong>New VM from This Template …</strong>. Name this VM as <strong>photon-3-kube-v1.20.5_vmware.2</strong>, select the VM folder created in step 6, select the resource pool created in step 5 in the next page, review and accept the license, select a datastore, select the port group created in step 7 as the destination network to connect to, and click <strong>FINISH</strong>. After the deployment is done, right click VM <strong>photon-3-kube-v1.20.5_vmware.2</strong> and click <strong>Template</strong> – <strong>Convert to Template</strong>.</p>
+</li>
+<li>
+<p>Right click the <strong>photon-3-kube-v1.19.9+vmware.2-tkg.1-11749392838678570289</strong> item in content library, select <strong>New VM from This Template …</strong>. Name this VM as <strong>photon-3-kube-v1.19.9_vmware.2</strong>, select the VM folder created in step 6, select the resource pool created in step 5 in the next page, review and accept the license, select a datastore, select the port group created in step 7 as the destination network to connect to, and click <strong>FINISH</strong>. After the deployment is done, right click VM <strong>photon-3-kube-v1.19.9_vmware.2</strong> and click <strong>Template</strong> – <strong>Convert to Template</strong>.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Deploy TKG demo appliance:</p>
+<ol>
+<li>Right click the resource pool created in step 5 and select <strong>New Virtual Machine…</strong>.</li>
+<li>Select <strong>Deploy from template</strong> and choose <strong>TKG-Demo-Appliance-1.3.1</strong>.</li>
+<li>Name this VM and put it in the VM folder created in step 6.</li>
+<li>Select the resource pool created in step 5 as compute resource.</li>
+<li>Select a datastore for this VM.</li>
+<li>Select the port group created in step 7 as network.</li>
+<li>Fill in <strong>Networking</strong> and <strong>OS Credentials</strong> sections in <strong>Customize template</strong> page.</li>
+<li>Click <strong>FINISH</strong>.</li>
+</ol>
+</li>
+<li>
+<p>Power on the TKG demo appliance VM. Wait for the initialization process finishes, and then login with username <strong>root</strong> and password set in step 11.7.</p>
+</li>
+<li>
+<p>Run command <code>ssh-keygen</code>, and then run <code>cat /root/.ssh/id_rsa.pub</code> to display the SSH key on terminal. Keep this terminal window open for use later.</p>
+</li>
+<li>
+<p>Run the following steps to add a DNS record for the TKG setup:</p>
+<ol>
+<li>Login the Linux machine/VM prepared for this task as root. Run command <code>systemctl stop systemd-resolved</code> to stop the build-in DNS service if it is running.</li>
+<li>Create file <strong>~/Corefile</strong> with the following content using a text editor (like <strong>vi</strong>):</li>
+<li>Create file <strong>~/example.db</strong> with the following content using a text editor (like <strong>vi</strong>):</li>
+<li>Run the following command to launch CoreDNS service:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run --restart<span class="o">=</span>always --volume<span class="o">=</span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/root/ -p 53:53/udp harbor-repo.vmware.com/dockerhub-proxy-cache/coredns/coredns -conf ~/Corefile
+</span></span></code></pre></div></li>
+<li>Run the following command from the terminal of TKG demo appliance to verify this DNS server is setup correctly:
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">dig @&lt;IP address of the Linux machine&gt; registry.rainpole.io
+</span></span></code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>Edit file <strong>/etc/systemd/network/99-dhcp-en.network</strong>, change the DNS server setting in this file to the correct DNS server, not this appliance itself. If you have launched your own DNS service in step 14, point DNS server to the Linux VM you are using in step 14. Run the following commands to apply this change.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">systemctl restart systemd-networkd
+</span></span><span class="line"><span class="cl">systemctl restart systemd-resolved
+</span></span></code></pre></div></li>
+<li>
+<p>Edit file <strong>vsphere-tkg-mgmt-template.yaml</strong>. Make the following changes:</p>
+<ol>
+<li>In <strong>vSphere configuration</strong> section, change <strong>VSPHERE_SERVER</strong> to the IP of the vCenter Server.</li>
+<li>Change <strong>VSPHERE_PASSWORD</strong> to the password of vSphere administrator.</li>
+<li>Change <strong>VSPHERE_USERNAME</strong> to the username of vSphere administrator.</li>
+<li>Change <strong>VSPHERE_DATACENTER</strong> to the name of datacenter created in step 3.</li>
+<li>Change the path in <strong>VSPHERE_RESOURCE_POOL</strong> to the actual path, which means the datacenter name and cluster name in the path should be changed.</li>
+<li>Change the datacenter name and datastore name in <strong>VSPHERE_DATASTORE</strong>.</li>
+<li>Change the datacenter name and VM folder name in <strong>VSPHERE_FOLDER</strong>.</li>
+<li>Change <strong>VSPHERE_NETWORK</strong> to the name of port group created in step 7.</li>
+<li>Change <strong>VSPHERE_CONTROL_PLANE_ENDPOINT</strong> to the static IP address of TKG management cluster.</li>
+<li>Copy the content of file <strong>/root/.ssh/id_rsa.pub</strong> (available on screen in step 13) to <strong>VSPHERE_SSH_AUTHORIZED_KEY</strong>.</li>
+<li>In <strong>Node configuration</strong> section, check the resource settings of TKG nodes, especially the disk size. Make changes if needed.</li>
+</ol>
+</li>
+<li>
+<p>Edit file <strong>vsphere-tkg-workload-1-template.yaml</strong> and <strong>vsphere-tkg-workload-2-template.yaml</strong>. Make similar changes to the two files according to step 16.</p>
+</li>
+<li>
+<p>Run the following command to create TKG management cluster:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tanzu management-cluster create -f vsphere-tkg-mgmt-template.yaml -v2
+</span></span></code></pre></div><p>This command takes about five minutes. Output of this command is like the following:</p>
+</li>
+<li>
+<p>Run the following command to create TKG workload cluster 1:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tanzu cluster create -f vsphere-tkg-workload-1-template.yaml
+</span></span></code></pre></div><p>This command may take 10 to 15 minutes. Output of this command is like the following:</p>
+</li>
+<li>
+<p>Run the following command to create TKG workload cluster 2:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tanzu cluster create -f vsphere-tkg-workload-2-template.yaml --tkr v1.19.9---vmware.2-tkg.1
+</span></span></code></pre></div><p>This command may take 10 to 15 minutes. Output of this command is like the following:</p>
+</li>
+</ol>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 16, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/1e11a3a18849f6527d5ca5520ea279b7ddc734d9">website: update introduction page (#11) (1e11a3a)</a>
+  Last modified November 30, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/e0dc37fb17cacf11a632b9028b3b407d10955cf7">Add doc to setup vSphere on single host (#19) (e0dc37f)</a>
 </div>
 
 </div>
@@ -393,6 +551,9 @@
 <script src="/ml-ops-platform-for-vsphere/js/main.min.996daafaf2da35aed251c4a4417605fd236f955837f403643c6117bf904daa5f.js" integrity="sha256-mW2q&#43;vLaNa7SUcSkQXYF/SNvlVg39ANkPGEXv5BNql8=" crossorigin="anonymous"></script>
 
 
+
+
+<script src="/ml-ops-platform-for-vsphere/js/copy-code-button.min.js"></script>
 
 
 
