@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/vmware.github.io\/ml-ops-platform-for-vsphere\/docs\/vmware-product\/bitfusion\/",
-      "wordCount" : "795",
+      "wordCount" : "797",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -49,12 +49,12 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vmware.github.io/ml-ops-platform-for-vsphere/docs/vmware-product/bitfusion/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2022-11-11T08:55:46+00:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
+<meta property="article:modified_time" content="2023-01-18T16:04:28+08:00" /><meta property="og:site_name" content="Kubeflow on vSphere" />
 
 <meta itemprop="name" content="Bitfusion">
 <meta itemprop="description" content="vSphere Infrastructure resources integrate with Kubeflow components">
-<meta itemprop="dateModified" content="2022-11-11T08:55:46+00:00" />
-<meta itemprop="wordCount" content="795">
+<meta itemprop="dateModified" content="2023-01-18T16:04:28+08:00" />
+<meta itemprop="wordCount" content="797">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Bitfusion"/>
 <meta name="twitter:description" content="vSphere Infrastructure resources integrate with Kubeflow components"/>
@@ -348,17 +348,17 @@
 <p>An inteagrated <a href="https://www.vmware.com/products/vsphere.html#resources">VMware vSphere</a>, Bitfusion delivers the ability to share resources in addition to providing better utilization of existing or new hardware accelerator resources. Bitfusion can dynamically share hardware accelerator devices, such as GPUs, across a network.And this technology is for specific use with AI/ML software such as TensorFlow and PyTorch.</p>
 <p>For more information about Bitfusion, please visit <a href="https://docs.vmware.com/cn/VMware-vSphere-Bitfusion/index.html">vSphere Bitfusion document page</a>.</p>
 <h2 id="installation--use-case">Installation &amp; Use Case</h2>
-<p>The bulk of this session will be a detailed example of how to run a TensorFlow application in a containerized Bitfusion environment with remote GPU access.</p>
+<p>The bulk of this session is a detailed example of how to run a TensorFlow application in a containerized Bitfusion environment with remote GPU access.</p>
 <h3 id="installation">Installation</h3>
 <p><img src="../1_arch.png" alt="1"></p>
 <p>There is the achitecture of the Kubeflow Jupyer Notebook integration with Bitfsion. You can follow the official guide to install bifusion server with the <a href="https://github.com/vmware/bitfusion-with-kubernetes-integration">Bifusion Device Plugin</a>. We also upload the package of kubeflow integration with bitfusion in the <a href="https://github.com/harperjuanl/kubeflow-v1.6.0-rc.1">Github Repo</a></p>
 <p>How can we use the same image for both of Bitfusion and Nvidia. Let me show you the reason. Under the hood, when a Notebook created, we’ve modified the Kubeflow code to put bitfusion configuration info into the annotations based on your selection and record the GPU resource requests and limits.</p>
-<p>Then the Modified Notebook controller will transfer all these information related to the bitfusion to the “StatefulSet” resource objects.</p>
-<p>When “Bitfusion Device Plugin” see that information in the Pod Resource, it will inject the bitfusion client library, server config, client certificate and all necessary information automatically  to make this notebook a valid bitfusion client.</p>
+<p>Then the modified Notebook controller will transfer all these information related to the bitfusion to the “StatefulSet” resource objects.</p>
+<p>When “Bitfusion Device Plugin” sees that information in the Pod Resource, it will inject the bitfusion client library, server config, client certificate and all necessary information automatically  to make this notebook a valid bitfusion client.</p>
 <h3 id="use-case">Use Case</h3>
-<p>When we are creating Jupyter Notebook instance in the Notebook page of the Kubeflow dashboard, we are giving the name, choose one of the Kubeflow official images. As you can see in the following figure, in the GPU resources settings, we choose th “BITFUSION” option. After launch the new notebook, we can easily run the bitfusion client applications in the Jupyter Notebook.</p>
+<p>When we are creating Jupyter Notebook instance in the Notebook page of the Kubeflow dashboard, we pick the name and choose one of the Kubeflow official images. As you can see in the following figure, in the GPU resources settings, we choose th “BITFUSION” option. After launch the new notebook, we can easily run the bitfusion client applications in the Jupyter Notebook.</p>
 <p><img src="../2_notebook.png" alt="2"></p>
-<p>We are running a bitfusion benchmark applications in this use case. From the output of the benchmark, we will find information related to the Bitfusion server resource allocation. You can get the source code of the example from <a href="">here</a></p>
+<p>We plan to run a bitfusion benchmark applications in this use case. From the output of the benchmark, we will find information related to the Bitfusion server resource allocation. You can get the source code of the example from <a href="">here</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">%env <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/bitfusion/bitfusion-client-ubuntu2004_4.5.0-4_amd64.deb/usr/bin:/opt/conda/bin
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># test for occupy bitfusion </span>
@@ -381,16 +381,16 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># release bitfusion resource</span>
 </span></span><span class="line"><span class="cl">bitfusion release_gpus -f /tmp/bitfuiosn...
-</span></span></code></pre></div><p>When running the bitfusion notebook, we can monitor the GPU usage in the vCenter Server console, shown as the demo.</p>
+</span></span></code></pre></div><p>When running the bitfusion notebook, we can monitor the GPU usage in the vCenter Server console as shown in the demo.</p>
 <p><img src="../4_bitfusion_console.png" alt="4"></p>
 <h2 id="roadmap">Roadmap</h2>
-<p>In the above use case, you may find that we can only run python scripts with a bitfusion wrapper. But we will build a “Bitfusion Kernel” in the near feature, shown as the screen, to let users to run every python code blocks into bitfusion environment</p>
+<p>In the above use case, you may find that we can only run python scripts with a bitfusion wrapper. But we will build a “Bitfusion Kernel” in the near feature as shown on the screen to let users to run every python code blocks into bitfusion environment</p>
 <p><img src="../3_bitfusion_kernel_roadmap.png" alt="3"></p>
 
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified November 11, 2022: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/d6f3107fe33ada0bef5c0230f086f080a918e737">website: change doc title (d6f3107)</a>
+  Last modified January 18, 2023: <a href="https://github.com/vmware/ml-ops-platform-for-vsphere//commit/cd1a61071c1d1dfdef95b862461a1d03af2608cc">Update bitfusion.md (cd1a610)</a>
 </div>
 
 </div>
@@ -410,7 +410,7 @@
         
       </div>
       <div class="col text-center py-2 order-sm-2">
-        <small class="text-white">&copy; 2022 Copyright VMware, Inc.</small>
+        <small class="text-white">&copy; 2023 Copyright VMware, Inc.</small>
         
 	
       </div>

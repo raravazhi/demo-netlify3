@@ -31,17 +31,17 @@
 &lt;p&gt;An inteagrated &lt;a href=&#34;https://www.vmware.com/products/vsphere.html#resources&#34;&gt;VMware vSphere&lt;/a&gt;, Bitfusion delivers the ability to share resources in addition to providing better utilization of existing or new hardware accelerator resources. Bitfusion can dynamically share hardware accelerator devices, such as GPUs, across a network.And this technology is for specific use with AI/ML software such as TensorFlow and PyTorch.&lt;/p&gt;
 &lt;p&gt;For more information about Bitfusion, please visit &lt;a href=&#34;https://docs.vmware.com/cn/VMware-vSphere-Bitfusion/index.html&#34;&gt;vSphere Bitfusion document page&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;installation--use-case&#34;&gt;Installation &amp;amp; Use Case&lt;/h2&gt;
-&lt;p&gt;The bulk of this session will be a detailed example of how to run a TensorFlow application in a containerized Bitfusion environment with remote GPU access.&lt;/p&gt;
+&lt;p&gt;The bulk of this session is a detailed example of how to run a TensorFlow application in a containerized Bitfusion environment with remote GPU access.&lt;/p&gt;
 &lt;h3 id=&#34;installation&#34;&gt;Installation&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&#34;../1_arch.png&#34; alt=&#34;1&#34;&gt;&lt;/p&gt;
 &lt;p&gt;There is the achitecture of the Kubeflow Jupyer Notebook integration with Bitfsion. You can follow the official guide to install bifusion server with the &lt;a href=&#34;https://github.com/vmware/bitfusion-with-kubernetes-integration&#34;&gt;Bifusion Device Plugin&lt;/a&gt;. We also upload the package of kubeflow integration with bitfusion in the &lt;a href=&#34;https://github.com/harperjuanl/kubeflow-v1.6.0-rc.1&#34;&gt;Github Repo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;How can we use the same image for both of Bitfusion and Nvidia. Let me show you the reason. Under the hood, when a Notebook created, we’ve modified the Kubeflow code to put bitfusion configuration info into the annotations based on your selection and record the GPU resource requests and limits.&lt;/p&gt;
-&lt;p&gt;Then the Modified Notebook controller will transfer all these information related to the bitfusion to the “StatefulSet” resource objects.&lt;/p&gt;
-&lt;p&gt;When “Bitfusion Device Plugin” see that information in the Pod Resource, it will inject the bitfusion client library, server config, client certificate and all necessary information automatically  to make this notebook a valid bitfusion client.&lt;/p&gt;
+&lt;p&gt;Then the modified Notebook controller will transfer all these information related to the bitfusion to the “StatefulSet” resource objects.&lt;/p&gt;
+&lt;p&gt;When “Bitfusion Device Plugin” sees that information in the Pod Resource, it will inject the bitfusion client library, server config, client certificate and all necessary information automatically  to make this notebook a valid bitfusion client.&lt;/p&gt;
 &lt;h3 id=&#34;use-case&#34;&gt;Use Case&lt;/h3&gt;
-&lt;p&gt;When we are creating Jupyter Notebook instance in the Notebook page of the Kubeflow dashboard, we are giving the name, choose one of the Kubeflow official images. As you can see in the following figure, in the GPU resources settings, we choose th “BITFUSION” option. After launch the new notebook, we can easily run the bitfusion client applications in the Jupyter Notebook.&lt;/p&gt;
+&lt;p&gt;When we are creating Jupyter Notebook instance in the Notebook page of the Kubeflow dashboard, we pick the name and choose one of the Kubeflow official images. As you can see in the following figure, in the GPU resources settings, we choose th “BITFUSION” option. After launch the new notebook, we can easily run the bitfusion client applications in the Jupyter Notebook.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../2_notebook.png&#34; alt=&#34;2&#34;&gt;&lt;/p&gt;
-&lt;p&gt;We are running a bitfusion benchmark applications in this use case. From the output of the benchmark, we will find information related to the Bitfusion server resource allocation. You can get the source code of the example from &lt;a href=&#34;&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;We plan to run a bitfusion benchmark applications in this use case. From the output of the benchmark, we will find information related to the Bitfusion server resource allocation. You can get the source code of the example from &lt;a href=&#34;&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;%env &lt;span class=&#34;nv&#34;&gt;PATH&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;nv&#34;&gt;$PATH&lt;/span&gt;:/bitfusion/bitfusion-client-ubuntu2004_4.5.0-4_amd64.deb/usr/bin:/opt/conda/bin
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# test for occupy bitfusion &lt;/span&gt;
@@ -64,10 +64,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# release bitfusion resource&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bitfusion release_gpus -f /tmp/bitfuiosn...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When running the bitfusion notebook, we can monitor the GPU usage in the vCenter Server console, shown as the demo.&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;When running the bitfusion notebook, we can monitor the GPU usage in the vCenter Server console as shown in the demo.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../4_bitfusion_console.png&#34; alt=&#34;4&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;roadmap&#34;&gt;Roadmap&lt;/h2&gt;
-&lt;p&gt;In the above use case, you may find that we can only run python scripts with a bitfusion wrapper. But we will build a “Bitfusion Kernel” in the near feature, shown as the screen, to let users to run every python code blocks into bitfusion environment&lt;/p&gt;
+&lt;p&gt;In the above use case, you may find that we can only run python scripts with a bitfusion wrapper. But we will build a “Bitfusion Kernel” in the near feature as shown on the screen to let users to run every python code blocks into bitfusion environment&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;../3_bitfusion_kernel_roadmap.png&#34; alt=&#34;3&#34;&gt;&lt;/p&gt;
 
       </description>
