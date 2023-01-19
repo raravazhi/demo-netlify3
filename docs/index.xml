@@ -1306,7 +1306,7 @@ src=&#34;https://nbviewer.org/github/vmware/ml-ops-platform-for-vsphere/blob/mai
 &lt;p&gt;&lt;em&gt;Notebook, Model source codes, datasets, Dockerfiles, example pipeline YAML file and example pipeline logs are all included in repo.&lt;/em&gt;&lt;/p&gt;
 &lt;h4 id=&#34;about-model&#34;&gt;About Model&lt;/h4&gt;
 &lt;p&gt;This model comes from Kaggle Competition. The objective of this task is to predict keypoint positions on face images, which can be used as a building block in several applications, such as analysing facial expressions and biometrics recognition.&lt;/p&gt;
-&lt;p&gt;There are two main tasks: train and evaluation. Each would be build as a pipeline component later.&lt;/p&gt;
+&lt;p&gt;There are two main tasks: train and evaluation. Each would be built as a pipeline component later.&lt;/p&gt;
 &lt;p&gt;Datasets for training and testing can be found and downloaded &lt;a href=&#34;https://www.kaggle.com/competitions/facial-keypoints-detection/data&#34;&gt;here&lt;/a&gt;. (You need to download &lt;code&gt;test.zip&lt;/code&gt; and &lt;code&gt;train.zip&lt;/code&gt; files and put them under &lt;code&gt;train/my_data&lt;/code&gt;. More details can be found in &lt;a href=&#34;https://github.com/vmware/ml-ops-platform-for-vsphere/blob/main/website/content/en/docs/kubeflow-tutorial/lab5_pipeline_complete/example1_facialKeypoint.ipynb&#34;&gt;Example 1 Notebook&lt;/a&gt;.)&lt;/p&gt;
 &lt;p&gt;More details about this model itself can be found &lt;a href=&#34;https://www.kaggle.com/competitions/facial-keypoints-detection&#34;&gt;here on Kaggle Competition page&lt;/a&gt;.&lt;/p&gt;
 &lt;h4 id=&#34;about-pipeline&#34;&gt;About Pipeline&lt;/h4&gt;
